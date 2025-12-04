@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+i.icon {
+  display: inline-block;
+  background-size: contain; /* Scales SVG to fit the element while preserving aspect ratio */
+  background-repeat: no-repeat;
+  background-position: center;
+  aspect-ratio: 1;
+  /* width: 24px; */
+
+  &.icon-xs {
+    width: 12px;
+  }
+
+  &.icon-sm {
+    width: 16px;
+  }
+
+  &.icon-md {
+    width: 24px;
+  }
+
+  &.icon-lg {
+    width: 36px;
+  }
+
+  &.icon-xl {
+    width: 48px;
+  }
+
+  &::before {
+    width: 100%;
+    display: block;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  &.icon-bar-chart::before {
+    content: url("/assets/icons/bar-chart.svg");
+  }
+
+  &.icon-data::before {
+    content: url("/assets/icons/data.svg");
+  }
+
+  &.icon-download-02::before {
+    content: url("/assets/icons/download-02.svg");
+  }
+
+  &.icon-download-04::before {
+    content: url("/assets/icons/download-04.svg");
+  }
+
+  &.icon-file::before {
+    content: url("/assets/icons/file.svg");
+  }
+
+  &.icon-hand-01::before {
+    content: url("/assets/icons/hand-01.svg");
+  }
+
+  &.icon-layers-two-01::before {
+    content: url("/assets/icons/layers-two-01.svg");
+  }
+
+  &.icon-logo::before {
+    content: url("/assets/icons/logo.svg");
+  }
+
+  &.icon-marker-pin-04::before {
+    content: url("/assets/icons/marker-pin-04.svg");
+  }
+
+  &.icon-shopping-bag-02::before {
+    content: url("/assets/icons/shopping-bag-02.svg");
+  }
+
+  &.icon-signal::before {
+    content: url("/assets/icons/signal.svg");
+  }
+
+  &.icon-support::before {
+    content: url("/assets/icons/support.svg");
+  }
+
+  &.icon-tool-01::before {
+    content: url("/assets/icons/tool-01.svg");
+  }
+
+  &.icon-tag-01::before {
+    content: url("/assets/icons/tag-01.svg");
+  }
+
+  &.icon-zap-fast::before {
+    content: url("/assets/icons/zap-fast.svg");
+  }
 }

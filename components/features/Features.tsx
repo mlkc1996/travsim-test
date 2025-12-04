@@ -11,6 +11,14 @@ export type FeaturesProps = {
   features: FeatureType[];
 };
 
+const Feature = () => {
+  return (
+    <div>
+      <i></i>
+    </div>
+  );
+};
+
 export const Features = ({ title, features }: FeaturesProps) => {
   return (
     <SectionContainer>
