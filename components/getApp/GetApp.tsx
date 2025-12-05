@@ -1,11 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
+import { Image } from "@/shared/UI/image/Image";
 import { SectionContainer } from "@/shared/UI/sectionContainer/SectionContainer";
 
 export const GetApp = () => {
   return (
     <SectionContainer orientation="row">
       <Image
+        fill
         src={`${process.env.IMAGE_PATH}/mobile_app.png`}
         alt={"mobile app"}
       />
@@ -19,15 +20,19 @@ export const GetApp = () => {
         <div className="flex gap-[9.45px] items-center">
           <Link href={"#"}>
             <Image
+              fill
               src={`${process.env.IMAGE_PATH}/app_store.png`}
               alt={"App Store"}
             />
           </Link>
           <Link href={"#"}>
-            <Image
-              src={`${process.env.IMAGE_PATH}/play_store.png`}
-              alt={"Play Store"}
-            />
+            <div>
+              <Image
+                fill
+                src={`${process.env.IMAGE_PATH}/play_store.png`}
+                alt={"Play Store"}
+              />
+            </div>
           </Link>
         </div>
       </div>

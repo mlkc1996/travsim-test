@@ -1,6 +1,6 @@
 import { Icon } from "../icon/Icon";
 import "./Box.module.scss";
-import Image from "next/image";
+import { Image } from "@/shared/UI/image/Image";
 
 export type BoxProps = {
   icon: string;
@@ -25,7 +25,14 @@ export const Box = ({
       <Icon icon={icon} className="box-icon" />
       <h4 className="box-icon">{title}</h4>
       {image?.src && (
-        <Image className="box-image" alt={image.alt ?? ""} src={image.src} />
+        <div>
+          <Image
+            fill
+            className="box-image"
+            alt={image.alt ?? ""}
+            src={image.src}
+          />
+        </div>
       )}
       <p className="box-desc">{description}</p>
     </div>

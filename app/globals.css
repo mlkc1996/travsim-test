@@ -16,28 +16,8 @@ i.icon {
   background-size: contain; /* Scales SVG to fit the element while preserving aspect ratio */
   background-repeat: no-repeat;
   background-position: center;
-  aspect-ratio: 1;
+  /* aspect-ratio: 1; */
   /* width: 24px; */
-
-  &.icon-xs {
-    width: 12px;
-  }
-
-  &.icon-sm {
-    width: 16px;
-  }
-
-  &.icon-md {
-    width: 24px;
-  }
-
-  &.icon-lg {
-    width: 36px;
-  }
-
-  &.icon-xl {
-    width: 48px;
-  }
 
   &::before {
     width: 100%;

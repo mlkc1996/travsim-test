@@ -1,6 +1,6 @@
 import { SectionContainer } from "@/shared/UI/sectionContainer/SectionContainer";
 import styles from "./Testimonial.module.scss";
-import Image from "next/image";
+import { Image } from "@/shared/UI/image/Image";
 
 const a = {
   title: "Hear what travellers say about use",
@@ -68,18 +68,23 @@ export const Testimonial = ({
       <h3>{title}</h3>
       {subtitle && <p>{subtitle}</p>}
       <div className={styles.testimonialsContainer}>
-        {testimonials.map(({ userId, userName, userProfile, comment }: any) => {
-          return (
-            <div className={styles.testimonial}>
-              <Image
-                src={`${process.env.USER_PROFILE_PATH}/${userProfile}`}
-                alt={`${userName} profile`}
-              />
-              <p>{comment}</p>
-              <span>{userName}</span>
-            </div>
-          );
-        })}
+        {testimonials.map(
+          ({ userId, userName, userProfile, comment }: any, index: number) => {
+            return (
+              <div className={styles.testimonial} key={index}>
+                <div>
+                  <Image
+                    fill
+                    src={`${process.env.USER_PROFILE_PATH}/${userProfile}`}
+                    alt={`${userName} profile`}
+                  />
+                </div>
+                <p>{comment}</p>
+                <span>{userName}</span>
+              </div>
+            );
+          }
+        )}
       </div>
     </SectionContainer>
   );

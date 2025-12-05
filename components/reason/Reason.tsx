@@ -1,7 +1,7 @@
 import { Box } from "@/shared/UI/box/Box";
 import { SectionContainer } from "@/shared/UI/sectionContainer/SectionContainer";
 import styles from "./Reason.module.scss";
-import Image from "next/image";
+import { Image } from "@/shared/UI/image/Image";
 
 const visuals = [
   {
@@ -28,10 +28,11 @@ export const Reason = ({ title, reasons }: any) => {
     <SectionContainer>
       <h3>{title}</h3>
       <div className={styles.reasonContainer}>
-        {reasons.map(({ title, description }: any, index: number) => {
+        {reasons?.map?.(({ title, description }: any, index: number) => {
           const { icon } = visuals[index];
           return (
             <Box
+              key={index}
               icon={icon}
               title={title}
               description={description}
@@ -39,11 +40,13 @@ export const Reason = ({ title, reasons }: any) => {
             />
           );
         })}
-        <Image
-          src={"/assets/images/reason_section.png"}
-          alt="reason image"
-          className={styles.image}
-        />
+        <div>
+          <Image
+            src={"/assets/images/reason_section.png"}
+            alt="reason image"
+            className={styles.image}
+          />
+        </div>
       </div>
     </SectionContainer>
   );
