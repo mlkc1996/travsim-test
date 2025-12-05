@@ -1,8 +1,9 @@
 import { SectionContainer } from "@/shared/UI/sectionContainer/SectionContainer";
 import styles from "./Compare.module.scss";
 import { Icon } from "@/shared/UI/icon/Icon";
+import { Image } from "@/shared/UI/image/Image";
 
-const a = {
+const data = {
   title: "Our eSIM vs. the Competition",
   headers: [
     "OUR ESIM",
@@ -91,30 +92,63 @@ export const TableCellContent = ({ content, clasName }: any) => {
     case "No":
       return <Icon icon="x-close" className={clasName} />;
     default:
-      return <span className={clasName}>{content}</span>;
+      return (
+        <span className={"text-level-normal-100 text-font-medium"}>
+          {content}
+        </span>
+      );
   }
 };
 
 export const Compare = ({
-  title = a.title,
-  headers = a.headers,
-  features = a.features,
+  title = data.title,
+  headers = data.headers,
+  features = data.features,
 }: any) => {
   return (
-    <SectionContainer>
-      <h3>{title}</h3>
-      <table>
+    <SectionContainer className={styles.container}>
+      <h3 className="text-level-header text-font-x-bold">{title}</h3>
+      <table className={styles.table}>
         <thead>
+          <tr className={styles["no-border"]}>
+            <th></th>
+            {headers.map((_: any, index: number) => (
+              <th
+                key={index}
+                className={`${
+                  !index ? `${styles.highlight} ${styles.head}` : ""
+                }`}
+              >
+                <div></div>
+              </th>
+            ))}
+          </tr>
           <tr>
             <th></th>
             {headers.map((header: string, index: number) => {
               return (
-                <th key={index} className={`${styles.tableheader}`}>
-                  {!index ? (
-                    <Icon icon="logo" className={styles.logo} />
-                  ) : (
-                    header
-                  )}
+                <th
+                  key={index}
+                  className={`${styles.tableheader} ${
+                    !index ? styles.highlight : ""
+                  }`}
+                >
+                  <div>
+                    {!index ? (
+                      <Image
+                        src={`${process.env.IMAGE_PATH}/logo.png`}
+                        alt="logo"
+                        className={styles.logo}
+                      />
+                    ) : (
+                      <span
+                        className="text-level-normal-100 text-font-medium"
+                        style={{ textTransform: "capitalize" }}
+                      >
+                        {header}
+                      </span>
+                    )}
+                  </div>
                 </th>
               );
             })}
@@ -125,25 +159,56 @@ export const Compare = ({
             ({ title, our, other, wifi, roaming }: any, index: number) => {
               return (
                 <tr key={index}>
-                  <td className={styles.compareText}>
-                    <TableCellContent content={title} />
+                  <td>
+                    <div>
+                      <TableCellContent content={title} />
+                    </div>
+                  </td>
+                  <td
+                    className={`${styles.highlight} ${
+                      index & 1 ? "" : styles.darker
+                    }`}
+                  >
+                    <div>
+                      <TableCellContent content={our} />
+                    </div>
                   </td>
                   <td>
-                    <TableCellContent content={our} />
+                    <div>
+                      <TableCellContent content={other} />
+                    </div>
                   </td>
                   <td>
-                    <TableCellContent content={other} />
+                    <div>
+                      <TableCellContent content={wifi} />
+                    </div>
                   </td>
                   <td>
-                    <TableCellContent content={wifi} />
-                  </td>
-                  <td>
-                    <TableCellContent content={roaming} />
+                    <div>
+                      <TableCellContent content={roaming} />
+                    </div>
                   </td>
                 </tr>
               );
             }
           )}
+          <tr className={styles["no-border"]}>
+            <td></td>
+            {headers.map((_: any, index: number) => (
+              <td
+                key={index}
+                className={`${
+                  !index
+                    ? `${styles.highlight} ${styles.tail} ${
+                        (features.length - 1) & 1 ? "" : styles.highlight
+                      }`
+                    : ""
+                }`}
+              >
+                <div></div>
+              </td>
+            ))}
+          </tr>
         </tbody>
       </table>
     </SectionContainer>
