@@ -15,7 +15,7 @@ export const SectionContainer = ({
 }: SectionContainerProps) => {
   return (
     <section className={`SectionContainer ${containerClassName}`}>
-      <div className={`${className}  flex-${orientation}`}>{children}</div>
+      <div className={`${className} flex-${orientation}`}>{children}</div>
     </section>
   );
 };

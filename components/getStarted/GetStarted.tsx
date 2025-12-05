@@ -40,16 +40,20 @@ export const GetStarted = ({
   instructions = data.steps,
 }: any) => {
   return (
-    <SectionContainer className={`${styles.GetStarted}`}>
-      <h3>{title}</h3>
-      {subtitle && <p>{subtitle}</p>}
-      <div>
+    <SectionContainer className={`${styles.container}`}>
+      <h3 className="w-full text-left text-level-header text-font-x-bold">
+        {title}
+      </h3>
+      {subtitle && (
+        <p className="text-level-normal-200 text-font-normal">{subtitle}</p>
+      )}
+      <div className={styles.instructions}>
         {instructions.map(({ title, paragraph }: any, index: number) => {
           const { icon, image } = visuals[index];
           return (
             <Box
               key={index}
-              className={styles.feature}
+              className={styles.instruction}
               icon={icon}
               description={paragraph}
               title={title}

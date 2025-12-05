@@ -11,6 +11,7 @@
 :root {
   --rounded: 30px;
   --bg-secondary: #f8fafd;
+  --color-red: #b02235;
 }
 
 html {
@@ -19,6 +20,10 @@ html {
 
 body {
   font-size: 1.6rem;
+}
+
+button {
+  cursor: pointer;
 }
 
 .text-level-header {
@@ -151,5 +156,13 @@ i.icon {
 
   &.icon-x-close::before {
     content: url("/assets/icons/x-close.svg");
+  }
+
+  &.icon-plus::before {
+    content: url("/assets/icons/plus.svg");
+  }
+
+  &.icon-minus::before {
+    content: url("/assets/icons/minus.svg");
   }
 }

@@ -1,8 +1,9 @@
-.container {
-  padding: 70px 104px 104px;
+:global(.SectionContainer) .container {
+  padding: 7rem 10.4rem 10.4rem;
+  gap: 8.7rem;
 }
 
 .image {
-  width: 457px;
-  height: 537px;
+  width: 45.7rem; //457px;
+  height: 53.7rem; //537px;
 }

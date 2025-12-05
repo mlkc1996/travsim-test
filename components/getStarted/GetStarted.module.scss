@@ -1,0 +1,19 @@
+.container {
+  padding: 7rem 8rem 14rem;
+}
+
+.instructions {
+  display: flex;
+  gap: 3.2rem;
+}
+
+:global(.box).instruction {
+  background-color: var(--bg-secondary);
+  padding: 4.8rem;
+  border-radius: var(--rounded);
+
+  :global(.box-image) {
+    width: 30rem;
+    height: 31rem;
+  }
+}

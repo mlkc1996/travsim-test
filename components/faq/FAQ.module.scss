@@ -1,0 +1,36 @@
+.faqContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 3.2rem 4.8rem;
+  gap: 1.6rem;
+  border-radius: var(--rounded);
+  background-color: #fffbf2;
+  max-width: 97.4rem;
+  width: 100%;
+}
+
+.container {
+  padding: 14rem 23rem 7rem;
+  gap: 4rem;
+}
+
+.faq {
+  border-bottom: 1px solid #e2d5b7;
+  padding: 2rem 0px;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.answer {
+  //   padding-top: 2.4rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease, padding-top 0.2s ease;
+
+  &.open {
+    padding-top: 2.4rem;
+    max-height: 10rem;
+  }
+}

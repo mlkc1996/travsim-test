@@ -1,5 +1,5 @@
 import { Icon } from "../icon/Icon";
-import "./Box.module.scss";
+import "./Box.scss";
 import { Image } from "@/shared/UI/image/Image";
 
 export type BoxProps = {
@@ -23,18 +23,16 @@ export const Box = ({
   return (
     <div className={`box ${className}`}>
       <Icon icon={icon} className="box-icon" />
-      <h4 className="box-icon">{title}</h4>
+      <h4 className="text-level-subheader text-font-x-bold">{title}</h4>
       {image?.src && (
-        <div>
-          <Image
-            fill
-            className="box-image"
-            alt={image.alt ?? ""}
-            src={image.src}
-          />
-        </div>
+        <Image
+          fill
+          className="box-image"
+          alt={image.alt ?? ""}
+          src={image.src}
+        />
       )}
-      <p className="box-desc">{description}</p>
+      <p className="text-level-normal text-font-normal">{description}</p>
     </div>
   );
 };

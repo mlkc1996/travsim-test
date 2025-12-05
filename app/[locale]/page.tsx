@@ -1,3 +1,4 @@
+import { AlsoLike } from "@/components/alsoLike/AlsoLike";
 import { BenefitsSection } from "@/components/benefitSection/BenefitSection";
 import { Compare } from "@/components/compare/Compare";
 import { FAQ } from "@/components/faq/FAQ";
@@ -9,6 +10,8 @@ import { Reason } from "@/components/reason/Reason";
 import { Resources } from "@/components/resources/Resources";
 import { Testimonial } from "@/components/testimonial/Testimonial";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <>
@@ -19,7 +22,14 @@ export default function Home() {
       <Compare />
       <Reason />
       <GetStarted />
-      <>Also like</>
+      <AlsoLike
+        image={""}
+        packageName={"Europe Regional Package"}
+        startingPrice={"From $15,99"}
+        ctaText={"Get Package"}
+        href={"#"}
+        title={"You may also like"}
+      />
       <FAQ />
       <Testimonial />
       <Resources />
