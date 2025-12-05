@@ -1,4 +1,4 @@
-import "./globals.css";
+import "@/app/global.css";
 import { Roboto } from "next/font/google";
 
 const robotoNoraml = Roboto({
@@ -9,17 +9,21 @@ const robotoBold = Roboto({
   weight: "700",
 });
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+type RootLayoutProps = {
   children: React.ReactNode;
-}>) {
+  header: React.ReactNode;
+};
+
+export default function RootLayout({ children, header }: RootLayoutProps) {
   return (
     <html
       lang="en"
       className={`${robotoNoraml.className} ${robotoBold.className}`}
     >
-      <body>{children}</body>
+      <body>
+        {header}
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,4 +1,4 @@
-import styles from "./SectionContainer.module.scss";
+import "./SectionContainer.module.scss";
 
 type SectionContainerProps = {
   children: React.ReactNode;
@@ -16,7 +16,7 @@ export const SectionContainer = ({
   orientation = "col",
 }: SectionContainerProps) => {
   return (
-    <section className={`${styles.HeaderContainer} ${containerClassName}`}>
+    <section className={`HeaderContainer ${containerClassName}`}>
       <div className={`${className} gap-[${gap}] flex-${orientation}`}>
         {children}
       </div>

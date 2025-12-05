@@ -87,9 +87,9 @@ const a = {
 export const TableCellContent = ({ content, clasName }: any) => {
   switch (content) {
     case "Yes":
-      return <Icon icon="tick" className={clasName} />;
+      return <Icon icon="check" className={clasName} />;
     case "No":
-      return <Icon icon="cross" className={clasName} />;
+      return <Icon icon="x-close" className={clasName} />;
     default:
       <span className={clasName}>{content}</span>;
   }
