@@ -1,0 +1,123 @@
+@use "sass:map";
+
+.container {
+  padding: 7rem 10.4rem;
+}
+
+.button {
+  border: 1px solid #d9d9d9;
+  border-radius: 100px;
+  padding: 12px 16px;
+
+  &.active,
+  &:hover {
+    border-color: #289dc8;
+    background-color: #def6ff;
+    color: #005371;
+    cursor: pointer;
+  }
+}
+
+.accordions {
+  display: flex;
+  border-radius: var(--rounded);
+  overflow: hidden;
+  gap: 2px;
+}
+
+$bg-colors: (
+  1: #effbff,
+  2: #fff2d5,
+  3: #dafffd,
+  4: #ffead9,
+  5: #f4f3ff,
+);
+
+@each $sequence, $color in $bg-colors {
+  .accordion {
+    &:nth-child(#{$sequence}) {
+      background-color: $color;
+    }
+  }
+}
+
+.accordion {
+  display: flex;
+  gap: 3.4rem;
+  cursor: pointer;
+  position: relative;
+
+  padding: 4rem 2.4rem;
+
+  &.active {
+    padding: 4rem 3.4rem;
+    cursor: default;
+
+    .icon-wrapper {
+      width: 6.4rem;
+      height: 6.4rem;
+    }
+
+    .left-side {
+      min-width: 20rem;
+    }
+
+    .image {
+      width: 35rem;
+    }
+  }
+
+  .icon-wrapper {
+    width: 5.2rem;
+    height: 5.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+
+  i:global(.icon) {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  .left-side {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    height: 100%;
+  }
+
+  .box {
+    background-color: #fff;
+    padding: 4rem;
+    display: flex;
+    gap: 3.2rem;
+    width: 36.5rem;
+    margin-top: auto;
+    max-width: 40rem;
+    max-height: 40rem;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .box.hidden {
+    overflow: hidden;
+    position: absolute;
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+}
+
+.image {
+  width: 0rem;
+  height: auto;
+  border-radius: var(--rounded-s);
+
+  transition: width 0.2s ease;
+
+  img {
+    object-fit: cover;
+  }
+}

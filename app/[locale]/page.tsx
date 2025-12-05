@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       {/* <HeroSection /> */}
-      {/* <BenefitsSection /> */}
+      <BenefitsSection />
       <Features />
       <BestValue
         title="BEST VALUE FOR THE USA"

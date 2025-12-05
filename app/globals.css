@@ -10,6 +10,7 @@
 
 :root {
   --rounded: 30px;
+  --rounded-s: 15px;
   --bg-secondary: #f8fafd;
   --color-red: #b02235;
 }
