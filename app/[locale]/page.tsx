@@ -18,7 +18,7 @@ export default function Home() {
     <>
       {/* <HeroSection /> */}
       {/* <BenefitsSection /> */}
-      <Features title={"eSIM for United States features"} features={[]} />
+      <Features />
       <BestValue
         title="BEST VALUE FOR THE USA"
         bestValueText="20GB for 30 days for $24,99"

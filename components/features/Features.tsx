@@ -5,7 +5,7 @@ import styles from "./Features.module.scss";
 type FeatureType = {
   icon: string;
   title: string;
-  description: string;
+  paragraph: string;
 };
 
 const visuals = [
@@ -17,7 +17,7 @@ const visuals = [
   { icon: "file" },
 ];
 
-const a = {
+const data = {
   title: "Prepaid 香港 eSIM Features",
   image: "__PLACEHOLDER_0__",
   features: [
@@ -61,21 +61,27 @@ const a = {
 };
 
 export type FeaturesProps = {
-  title: string;
-  features: FeatureType[];
+  title?: string;
+  features?: FeatureType[];
 };
 
-export const Features = ({ title, features }: FeaturesProps) => {
+export const Features = ({
+  title = data.title,
+  features = data.features,
+}: FeaturesProps) => {
   return (
-    <SectionContainer>
-      {title}
+    <SectionContainer className={styles.container}>
+      <h3 className="text-level-header w-full text-left text-font-x-bold">
+        {title}
+      </h3>
       <div className={styles.featureContainer}>
-        {features.map((feature, index) => (
+        {features?.map(({ icon, title, paragraph }, index) => (
           <Box
+            key={index}
             className={styles.feature}
-            icon={visuals[index].icon}
-            description={feature.description}
-            title={feature.title}
+            icon={icon}
+            description={paragraph}
+            title={title}
           />
         ))}
       </div>
