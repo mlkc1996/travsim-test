@@ -2,6 +2,7 @@
 
 .container {
   padding: 7rem 10.4rem;
+  align-items: flex-start;
 }
 
 .button {
@@ -43,7 +44,6 @@ $bg-colors: (
 
 .accordion {
   display: flex;
-  gap: 3.4rem;
   cursor: pointer;
   position: relative;
 
@@ -52,6 +52,7 @@ $bg-colors: (
   &.active {
     padding: 4rem 3.4rem;
     cursor: default;
+    gap: 3.4rem;
 
     .icon-wrapper {
       width: 6.4rem;
@@ -63,7 +64,8 @@ $bg-colors: (
     }
 
     .image {
-      width: 35rem;
+      width: 36rem;
+      height: 45rem;
     }
   }
 
@@ -119,5 +121,6 @@ $bg-colors: (
 
   img {
     object-fit: cover;
+    object-position: 84%;
   }
 }
