@@ -79,7 +79,7 @@ export const Reason = ({ title = data.title, reasons = data.reasons }: any) => {
           );
         })}
         <Image
-          src={`${process.env.IMAGE_PATH}/reason_section.png"`}
+          src={`${process.env.IMAGE_PATH}/reason_section.png`}
           alt="reason image"
           className={styles.image}
         />

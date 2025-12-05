@@ -34,10 +34,7 @@ export const AlsoLike = ({
         <span className="text-level-normal-200 text-font-normal">
           {startingPrice}
         </span>
-        <Link
-          className={`text-level-normal-200 text-font-norma ${styles.cta}`}
-          href={href}
-        >
+        <Link className={`cta ${styles.cta}`} href={href}>
           {ctaText}
         </Link>
       </div>

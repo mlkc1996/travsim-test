@@ -166,3 +166,19 @@ i.icon {
     content: url("/assets/icons/minus.svg");
   }
 }
+
+.cta {
+  border-radius: 8px;
+  padding: 22px 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-red);
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 500;
+
+  max-width: 32rem;
+  height: 4.4rem;
+  width: 100%;
+}

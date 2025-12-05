@@ -1,5 +1,6 @@
 import { AlsoLike } from "@/components/alsoLike/AlsoLike";
 import { BenefitsSection } from "@/components/benefitSection/BenefitSection";
+import { BestValue } from "@/components/bestValue/BestValue";
 import { Compare } from "@/components/compare/Compare";
 import { FAQ } from "@/components/faq/FAQ";
 import { Features } from "@/components/features/Features";
@@ -15,10 +16,15 @@ export const dynamic = "force-dynamic";
 export default function Home() {
   return (
     <>
-      <HeroSection />
-      <BenefitsSection />
+      {/* <HeroSection /> */}
+      {/* <BenefitsSection /> */}
       <Features title={"eSIM for United States features"} features={[]} />
-      <>Best Value</>
+      <BestValue
+        title="BEST VALUE FOR THE USA"
+        bestValueText="20GB for 30 days for $24,99"
+        ctaText="Get Package"
+        href="#"
+      />
       <Compare />
       <Reason />
       <GetStarted />

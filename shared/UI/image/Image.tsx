@@ -11,9 +11,11 @@ export const Image = ({
   className,
   ...rest
 }: ImageProps) => {
+  const fallback = `${process.env.IMAGE_PATH}/placeholder.png`;
+
   let _fill = !width ? true : fill;
 
-  const [src, setSrc] = useState(rest.src);
+  const [src, setSrc] = useState(rest.src || fallback);
 
   return (
     <div
@@ -25,7 +27,7 @@ export const Image = ({
         src={src}
         onError={() => {
           console.log(`onErrorCapture ${process.env.IMAGE_PATH}`);
-          setSrc(`${process.env.IMAGE_PATH}/placeholder.png`);
+          setSrc(fallback);
         }}
         fill={_fill}
         width={width}
