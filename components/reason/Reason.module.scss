@@ -1,0 +1,21 @@
+.container {
+  padding: 7rem 8rem;
+  gap: 4rem;
+}
+
+.reasonContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem;
+}
+
+:global(.box).reason {
+  border: 1px solid #bfc8d0;
+  padding: 2.4rem 3.2rem 3.2rem;
+  gap: 1.6rem;
+}
+
+.image {
+  grid-column: 2 / 3;
+  grid-row: 1 / 4;
+}
