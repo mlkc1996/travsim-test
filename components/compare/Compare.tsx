@@ -91,7 +91,7 @@ export const TableCellContent = ({ content, clasName }: any) => {
     case "No":
       return <Icon icon="x-close" className={clasName} />;
     default:
-      <span className={clasName}>{content}</span>;
+      return <span className={clasName}>{content}</span>;
   }
 };
 
@@ -123,23 +123,25 @@ export const Compare = ({
         <tbody>
           {features.map(
             ({ title, our, other, wifi, roaming }: any, index: number) => {
-              <tr key={index}>
-                <td className={styles.compareText}>
-                  <TableCellContent content={title} />
-                </td>
-                <td>
-                  <TableCellContent content={our} />
-                </td>
-                <td>
-                  <TableCellContent content={other} />
-                </td>
-                <td>
-                  <TableCellContent content={wifi} />
-                </td>
-                <td>
-                  <TableCellContent content={roaming} />
-                </td>
-              </tr>;
+              return (
+                <tr key={index}>
+                  <td className={styles.compareText}>
+                    <TableCellContent content={title} />
+                  </td>
+                  <td>
+                    <TableCellContent content={our} />
+                  </td>
+                  <td>
+                    <TableCellContent content={other} />
+                  </td>
+                  <td>
+                    <TableCellContent content={wifi} />
+                  </td>
+                  <td>
+                    <TableCellContent content={roaming} />
+                  </td>
+                </tr>
+              );
             }
           )}
         </tbody>

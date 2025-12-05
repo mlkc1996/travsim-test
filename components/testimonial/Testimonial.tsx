@@ -59,28 +59,37 @@ const a = {
 };
 
 export const Testimonial = ({
-  title = a.subtitle,
+  title = a.title,
   subtitle = a.subtitle,
   testimonials = a.testimonials,
 }: any) => {
   return (
     <SectionContainer>
-      <h3>{title}</h3>
-      {subtitle && <p>{subtitle}</p>}
+      <h3 className="text-level-header text-font-x-bold">{title}</h3>
+      {subtitle && (
+        <p className="text-level-normal-200 text-font-normal">{subtitle}</p>
+      )}
       <div className={styles.testimonialsContainer}>
         {testimonials.map(
           ({ userId, userName, userProfile, comment }: any, index: number) => {
             return (
               <div className={styles.testimonial} key={index}>
-                <div>
-                  <Image
-                    fill
-                    src={`${process.env.USER_PROFILE_PATH}/${userProfile}`}
-                    alt={`${userName} profile`}
-                  />
-                </div>
-                <p>{comment}</p>
-                <span>{userName}</span>
+                <Image
+                  className={styles.image}
+                  fill
+                  src={`${process.env.USER_PROFILE_PATH}/${userProfile}`}
+                  alt={`${userName} profile`}
+                />
+                <p
+                  className={`text-level-${
+                    index !== 1 ? "normal-100" : "subheader-300"
+                  } text-font-normal`}
+                >
+                  {comment}
+                </p>
+                <span className="text-level-normal-300 text-font-x-bold">
+                  {userName}
+                </span>
               </div>
             );
           }

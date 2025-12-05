@@ -1,9 +1,8 @@
-import "./SectionContainer.module.scss";
+import "./SectionContainer.scss";
 
 type SectionContainerProps = {
   children: React.ReactNode;
   className?: string;
-  gap?: string;
   orientation?: "col" | "row";
   containerClassName?: string;
 };
@@ -12,14 +11,11 @@ export const SectionContainer = ({
   containerClassName = "",
   children,
   className = "",
-  gap = "24px",
   orientation = "col",
 }: SectionContainerProps) => {
   return (
-    <section className={`HeaderContainer ${containerClassName}`}>
-      <div className={`${className} gap-[${gap}] flex-${orientation}`}>
-        {children}
-      </div>
+    <section className={`SectionContainer ${containerClassName}`}>
+      <div className={`${className}  flex-${orientation}`}>{children}</div>
     </section>
   );
 };

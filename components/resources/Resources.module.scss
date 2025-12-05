@@ -1,0 +1,22 @@
+.container {
+  padding: 7rem 10.4rem;
+}
+
+.image {
+  width: 34rem;
+  height: 31rem;
+  border-radius: 16px;
+}
+
+.resource {
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  gap: 2.4rem;
+  padding: 2.4rem;
+
+  max-width: 39rem;
+  height: 56rem;
+
+  background-color: var(--bg-secondary);
+}
