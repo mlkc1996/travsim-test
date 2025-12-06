@@ -51,6 +51,7 @@ export const Header = () => {
           <button></button>
         </div>
       </div>
+      <div className={styles["box-shadow"]}></div>
     </header>
   );
 };

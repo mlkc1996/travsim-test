@@ -194,6 +194,10 @@ i.icon {
   &.icon-switch-vertical-01::before {
     content: url("/assets/icons/switch-vertical-01.svg");
   }
+
+  &.icon-search-md::before {
+    content: url("/assets/icons/search-md.svg");
+  }
 }
 
 .cta {
