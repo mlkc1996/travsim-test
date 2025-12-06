@@ -42,7 +42,7 @@ export const Header = () => {
   return (
     <header className={`${styles.header} ${openClass} `} ref={headerRef}>
       {/* <div className={styles["box-shadow"]}></div> */}
-      <div className={`${styles.container} ${openClass}`}>
+      <div className={`${styles.container} ${openClass} container-px-100`}>
         <Image
           src={`${process.env.IMAGE_PATH}/logo.png`}
           style={{

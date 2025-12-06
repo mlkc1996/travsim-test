@@ -28,7 +28,9 @@ $border-bottom: 1px solid #ebebeb;
   max-width: 1440px;
   width: 100%;
   display: flex;
-  padding: 1.6rem 8rem;
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+
   gap: 8rem;
   z-index: 1;
   height: var(--header-height);
@@ -36,12 +38,10 @@ $border-bottom: 1px solid #ebebeb;
   align-items: center;
 
   @container (width <= 1300px) {
-    padding: 1.6rem 4.8rem;
     gap: 4.8rem;
   }
 
   @container (width <= 1024px) {
-    padding: 1.6rem 3.2rem;
     gap: 3.2rem;
   }
 
