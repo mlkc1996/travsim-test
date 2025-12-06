@@ -1,0 +1,31 @@
+.header.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    height: 100%;
+    width: 100%;
+    top: 0;
+  }
+}
+
+.header {
+  background-color: #fff;
+  height: 80px;
+}
+
+.container {
+  max-width: 1440px;
+  display: flex;
+  padding: 1.6rem 8rem;
+}
+
+.logo {
+  width: 204px;
+  height: 33px;
+}
