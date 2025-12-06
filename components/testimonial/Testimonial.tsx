@@ -80,11 +80,7 @@ export const Testimonial = ({
                   src={`${process.env.USER_PROFILE_PATH}/${userProfile}`}
                   alt={`${userName} profile`}
                 />
-                <p
-                  className={`text-level-${
-                    index !== 1 ? "normal-100" : "subheader-300"
-                  } text-font-normal`}
-                >
+                <p className={`text-level-normal-100 text-font-normal`}>
                   {comment}
                 </p>
                 <span className="text-level-normal-300 text-font-x-bold">

@@ -169,10 +169,10 @@
   }
 
   .icon-container {
-    min-width: 48px;
-    min-height: 48px;
-    width: 48px;
-    height: 48px;
+    min-width: 4.8rem;
+    min-height: 4.8rem;
+    width: 4.8rem;
+    height: 4.8rem;
     background-color: #fff;
     border: 1px solid #d9d9d9;
     border-radius: 8px;
@@ -181,8 +181,8 @@
     justify-content: center;
 
     :global(.icon) {
-      width: 24px;
-      height: 24px;
+      width: 2.4rem;
+      height: 2.4rem;
     }
   }
 
@@ -215,7 +215,7 @@
     flex-wrap: wrap;
 
     button {
-      padding: 12px 16px;
+      padding: 1.2rem 1.6rem;
       border-radius: 100px;
 
       background-color: #fff;
@@ -231,7 +231,7 @@
     @container (width <= 400px) {
       gap: 8px;
       button {
-        padding: 8px 12px;
+        // padding: 8px 12px;
       }
     }
   }
