@@ -15,8 +15,8 @@ export const GetApp = () => {
         src={`${process.env.IMAGE_PATH}/mobile_app.png`}
         alt={"mobile app"}
       />
-      <div className="flex flex-col gap-[50px]">
-        <div className="flex flex-col gap-[22px]">
+      <div className="flex flex-col  md:gap-[5rem] gap-[12px]">
+        <div className="flex flex-col md:gap-[2.2rem] gap-[6px]">
           <h3 className="text-level-header text-font-x-bold">
             Wanna try it first? Get the App
           </h3>

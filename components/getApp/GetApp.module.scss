@@ -1,11 +1,23 @@
+@use "@/shared/scss/breakpoint" as *;
+
 .container {
   padding-top: 7rem;
   padding-bottom: 10.4rem;
-
   gap: 8.7rem;
+
+  @media screen and (width <= $breakpoint-tablet) {
+    gap: 3.2rem;
+  }
+
+  @include adjustMobileYPadding(3rem, 4.8rem);
 }
 
 .image {
   width: 45.7rem; //457px;
   height: 53.7rem; //537px;
+
+  @media screen and (width <= $breakpoint-mobile-l) {
+    width: 30rem; //457px;
+    height: 25rem; //537px;
+  }
 }
