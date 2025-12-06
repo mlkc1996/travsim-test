@@ -25,8 +25,12 @@ export const PackageAlbum = ({
           width={64}
           height={64}
           className={styles.flagImage}
+          style={{
+            objectFit: "cover",
+          }}
         />
         <Image
+          key={main}
           style={{
             objectFit: "cover",
             objectPosition: "5%",
