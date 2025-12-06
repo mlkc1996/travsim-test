@@ -1,0 +1,15 @@
+// from google chrome dev tool
+$breakpoint-laptop-l: 1440px;
+$breakpoint-laptop-l2: 1300px;
+$breakpoint-laptop: 1024px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile-l: 425px;
+$breakpoint-mobile-m: 375px;
+$breakpoint-mobile-s: 320px;
+
+@mixin adjustMobileYPadding($padding: 3rem) {
+  @media screen and (width <= $breakpoint-mobile-l) {
+    padding-top: $padding;
+    padding-bottom: $padding;
+  }
+}

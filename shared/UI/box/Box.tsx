@@ -32,7 +32,7 @@ export const Box = ({
           src={image.src}
         />
       )}
-      <p className="text-level-normal text-font-normal">{description}</p>
+      <p className="text-level-normal-100 text-font-normal">{description}</p>
     </div>
   );
 };

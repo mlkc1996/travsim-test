@@ -1,6 +1,10 @@
+@use "@/shared/scss/breakpoint" as *;
+
 .container {
   padding-top: 12rem;
   padding-bottom: 12rem;
+
+  @include adjustMobileYPadding(6rem);
 }
 
 .background {

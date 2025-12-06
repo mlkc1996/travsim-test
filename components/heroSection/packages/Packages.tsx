@@ -71,7 +71,7 @@ export const Package = ({ isBest, volumn, days, price }: any) => {
           <p className="text-level-normal-100 text-font-normal">{days} Days</p>
         </div>
       </div>
-      <span className="text-font-x-bold text-level-normal">{price}</span>
+      <span className="text-font-x-bold text-level-normal-100">{price}</span>
     </div>
   );
 };

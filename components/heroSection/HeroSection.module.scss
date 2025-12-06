@@ -1,3 +1,5 @@
+@use "@/shared/scss/breakpoint" as *;
+
 .background {
   background-image: url("/assets/images/herobg.png");
   background-size: cover;
@@ -32,10 +34,7 @@
     }
   }
 
-  @media screen and (width <= 425px) {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
+  @include adjustMobileYPadding();
 }
 
 .reviews {
@@ -70,7 +69,7 @@
     gap: 8px;
   }
 
-  @media screen and (width <= 425px) {
+  @media screen and (width <= $breakpoint-mobile-l) {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -250,8 +249,6 @@
     border-radius: var(--rounded);
     width: 46rem;
     height: 46rem;
-    img {
-    }
   }
 
   .flagImage {

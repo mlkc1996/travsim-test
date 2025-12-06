@@ -1,7 +1,11 @@
+@use "@/shared/scss/breakpoint" as *;
+
 .container {
   padding-top: 14rem;
   padding-bottom: 7rem;
   gap: 4rem;
+
+  @include adjustMobileYPadding(5rem);
 }
 
 .table {
@@ -12,6 +16,10 @@
     justify-content: center;
     padding: 1.6rem;
     padding-bottom: 2rem;
+
+    @media screen and (width <= 720px) {
+      padding: 8px;
+    }
   }
 
   tr {
@@ -21,6 +29,12 @@
   tbody td {
     &:first-child {
       padding-left: 0;
+
+      @media screen and (width <= 720px) {
+        & > div {
+          width: max-content;
+        }
+      }
     }
 
     &:not(:first-child) {
@@ -31,6 +45,10 @@
     }
 
     padding: 1.6rem;
+
+    @media screen and (width <= 720px) {
+      padding: 8px;
+    }
   }
 }
 
@@ -53,8 +71,13 @@
 }
 
 .logo {
-  height: 22px;
+  height: 2rem;
   width: 13rem;
+
+  @media screen and (width <= 720px) {
+    width: 9rem;
+    height: 12px;
+  }
 }
 
 table .no-border {

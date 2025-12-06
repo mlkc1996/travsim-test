@@ -108,109 +108,111 @@ export const Compare = ({
   return (
     <SectionContainer className={`${styles.container} container-px-200`}>
       <h3 className="text-level-header text-font-x-bold">{title}</h3>
-      <table className={styles.table}>
-        <thead>
-          <tr className={styles["no-border"]}>
-            <th></th>
-            {headers.map((_: any, index: number) => (
-              <th
-                key={index}
-                className={`${
-                  !index ? `${styles.highlight} ${styles.head}` : ""
-                }`}
-              >
-                <div></div>
-              </th>
-            ))}
-          </tr>
-          <tr>
-            <th></th>
-            {headers.map((header: string, index: number) => {
-              return (
+      <div style={{ maxWidth: "100%", overflowX: "auto" }}>
+        <table className={styles.table}>
+          <thead>
+            <tr className={styles["no-border"]}>
+              <th></th>
+              {headers.map((_: any, index: number) => (
                 <th
                   key={index}
-                  className={`${styles.tableheader} ${
-                    !index ? styles.highlight : ""
+                  className={`${
+                    !index ? `${styles.highlight} ${styles.head}` : ""
                   }`}
                 >
-                  <div>
-                    {!index ? (
-                      <Image
-                        src={`${process.env.IMAGE_PATH}/logo.png`}
-                        alt="logo"
-                        className={styles.logo}
-                      />
-                    ) : (
-                      <span
-                        className="text-level-normal-100 text-font-medium"
-                        style={{ textTransform: "capitalize" }}
-                      >
-                        {header}
-                      </span>
-                    )}
-                  </div>
+                  <div></div>
                 </th>
-              );
-            })}
-          </tr>
-        </thead>
-        <tbody>
-          {features.map(
-            ({ title, our, other, wifi, roaming }: any, index: number) => {
-              return (
-                <tr key={index}>
-                  <td>
-                    <div>
-                      <TableCellContent content={title} />
-                    </div>
-                  </td>
-                  <td
-                    className={`${styles.highlight} ${
-                      index & 1 ? "" : styles.darker
+              ))}
+            </tr>
+            <tr>
+              <th></th>
+              {headers.map((header: string, index: number) => {
+                return (
+                  <th
+                    key={index}
+                    className={`${styles.tableheader} ${
+                      !index ? styles.highlight : ""
                     }`}
                   >
                     <div>
-                      <TableCellContent content={our} />
+                      {!index ? (
+                        <Image
+                          src={`${process.env.IMAGE_PATH}/logo.png`}
+                          alt="logo"
+                          className={styles.logo}
+                        />
+                      ) : (
+                        <span
+                          className="text-level-normal-100 text-font-medium"
+                          style={{ textTransform: "capitalize" }}
+                        >
+                          {header}
+                        </span>
+                      )}
                     </div>
-                  </td>
-                  <td>
-                    <div>
-                      <TableCellContent content={other} />
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <TableCellContent content={wifi} />
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <TableCellContent content={roaming} />
-                    </div>
-                  </td>
-                </tr>
-              );
-            }
-          )}
-          <tr className={styles["no-border"]}>
-            <td></td>
-            {headers.map((_: any, index: number) => (
-              <td
-                key={index}
-                className={`${
-                  !index
-                    ? `${styles.highlight} ${styles.tail} ${
-                        (features.length - 1) & 1 ? "" : styles.highlight
-                      }`
-                    : ""
-                }`}
-              >
-                <div></div>
-              </td>
-            ))}
-          </tr>
-        </tbody>
-      </table>
+                  </th>
+                );
+              })}
+            </tr>
+          </thead>
+          <tbody>
+            {features.map(
+              ({ title, our, other, wifi, roaming }: any, index: number) => {
+                return (
+                  <tr key={index}>
+                    <td>
+                      <div>
+                        <TableCellContent content={title} />
+                      </div>
+                    </td>
+                    <td
+                      className={`${styles.highlight} ${
+                        index & 1 ? "" : styles.darker
+                      }`}
+                    >
+                      <div>
+                        <TableCellContent content={our} />
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <TableCellContent content={other} />
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <TableCellContent content={wifi} />
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <TableCellContent content={roaming} />
+                      </div>
+                    </td>
+                  </tr>
+                );
+              }
+            )}
+            <tr className={styles["no-border"]}>
+              <td></td>
+              {headers.map((_: any, index: number) => (
+                <td
+                  key={index}
+                  className={`${
+                    !index
+                      ? `${styles.highlight} ${styles.tail} ${
+                          (features.length - 1) & 1 ? "" : styles.highlight
+                        }`
+                      : ""
+                  }`}
+                >
+                  <div></div>
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </SectionContainer>
   );
 };
