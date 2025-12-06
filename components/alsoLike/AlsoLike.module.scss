@@ -1,8 +1,21 @@
+@use "@/shared/scss/breakpoint" as *;
+
 .container {
   padding-top: 5rem;
   padding-bottom: 5rem;
   gap: 6.8rem;
   flex-direction: row;
+
+  @include adjustMobileYPadding();
+
+  @media screen and (width <= $breakpoint-laptop) {
+    gap: 3.2rem;
+  }
+
+  @media screen and (width <= $breakpoint-mobile-m) {
+    flex-direction: column;
+    gap: 1.6rem;
+  }
 }
 
 .background {
@@ -11,10 +24,28 @@
   background-size: cover;
 }
 
+.package {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+
+  @media screen and (width <= $breakpoint-mobile-m) {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
 .image {
   width: 60rem;
   height: 39rem;
-}
 
-.cta {
+  @media screen and (width <= $breakpoint-laptop) {
+    width: 48rem;
+    height: 32rem;
+  }
+
+  @media screen and (width <= $breakpoint-mobile-m) {
+    width: 36rem;
+    height: 24rem;
+  }
 }

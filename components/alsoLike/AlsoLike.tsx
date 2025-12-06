@@ -26,7 +26,7 @@ export const AlsoLike = ({
       containerClassName={styles.background}
     >
       <Image src={""} alt={""} className={styles.image} />
-      <div className="flex flex-col gap-[2.4rem]">
+      <div className={`${styles.package}`}>
         <span className="text-level-normal-200 text-font-normal uppercase">
           {title}
         </span>
