@@ -187,8 +187,8 @@ i.icon {
     content: url("/assets/icons/headphones-02.svg");
   }
 
-  &.icon-shield-tick-02::before {
-    content: url("/assets/icons/shield-tick-02.svg");
+  &.icon-shield-tick::before {
+    content: url("/assets/icons/shield-tick.svg");
   }
 
   &.icon-switch-vertical-01::before {

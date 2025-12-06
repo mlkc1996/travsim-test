@@ -102,6 +102,7 @@ $bg-colors: (
     max-height: 40rem;
     opacity: 1;
     transform: translateX(0);
+    z-index: unset;
   }
 
   .box.hidden {
@@ -109,6 +110,7 @@ $bg-colors: (
     position: absolute;
     opacity: 0;
     transform: translateX(-50%);
+    z-index: -1;
   }
 }
 
