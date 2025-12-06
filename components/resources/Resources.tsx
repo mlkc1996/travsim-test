@@ -33,7 +33,7 @@ export const Resources = ({
       <h3 className="text-level-header text-font-x-bold text-left w-full">
         {title}
       </h3>
-      <div className="flex gap-[32px]">
+      <div className="flex gap-[3.2rem]">
         {resources?.map?.(
           ({ image, title, paragraph, link }: any, index: number) => {
             return (
@@ -43,18 +43,20 @@ export const Resources = ({
                   src={`${process.env.IMAGE_PATH}/${image}`}
                   alt={`Resource image ${index}`}
                 />
-                <h4 className="text-level-subheader text-font-x-bold">
-                  {title}
-                </h4>
-                <p className="text-level-normal-100 text-font-normal">
-                  {paragraph}
-                </p>
-                <Link
-                  className="text-level-normal-100 text-font-normal"
-                  href={link ?? ""}
-                >
-                  READ MORE
-                </Link>
+                <div className={styles["resource-inner"]}>
+                  <h4 className="text-level-subheader text-font-x-bold">
+                    {title}
+                  </h4>
+                  <p className="text-level-normal-100 text-font-normal">
+                    {paragraph}
+                  </p>
+                  <Link
+                    className="text-level-normal-100 text-font-normal"
+                    href={link ?? ""}
+                  >
+                    READ MORE
+                  </Link>
+                </div>
               </div>
             );
           }

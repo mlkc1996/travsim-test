@@ -1,11 +1,28 @@
+@use "@/shared/scss/breakpoint" as *;
+
 .container {
   padding-top: 7rem;
   padding-bottom: 7rem;
+
+  @include adjustMobileYPadding();
+
+  @media screen and (width <= $breakpoint-laptop) {
+    & > div {
+      gap: 1.8rem;
+    }
+  }
+
+  @media screen and (width <= $breakpoint-tablet) {
+    & > div {
+      flex-direction: column;
+    }
+  }
 }
 
 .image {
-  width: 34rem;
-  height: 31rem;
+  width: 100%;
+  min-height: 31rem;
+  min-width: 24rem;
   border-radius: 16px;
 }
 
@@ -20,4 +37,36 @@
   height: 56rem;
 
   background-color: var(--bg-secondary);
+
+  &-inner {
+    display: inherit;
+    flex-direction: column;
+    gap: inherit;
+  }
+
+  @media screen and (width <= $breakpoint-laptop) {
+    gap: 1.8rem;
+  }
+
+  @media screen and (width <= $breakpoint-tablet) {
+    max-width: unset;
+    flex-direction: row;
+    height: min-content;
+    gap: 1.2rem;
+
+    &-inner {
+      flex-direction: column;
+
+      a {
+        margin-top: auto;
+      }
+    }
+  }
+
+  @media screen and (width <= $breakpoint-mobile-s) {
+    .image {
+      min-height: 15rem;
+      min-width: 16rem;
+    }
+  }
 }
