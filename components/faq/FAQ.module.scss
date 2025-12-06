@@ -1,3 +1,5 @@
+@use "@/shared/scss/breakpoint" as *;
+
 .faqContainer {
   display: flex;
   flex-direction: column;
@@ -7,12 +9,18 @@
   background-color: #fffbf2;
   max-width: 97.4rem;
   width: 100%;
+
+  @media screen and (width <= $breakpoint-tablet) {
+    padding: 2rem 3rem;
+  }
 }
 
 .container {
   padding-top: 14rem;
   padding-bottom: 7rem;
   gap: 4rem;
+
+  @include adjustMobileYPadding(5rem, 3rem);
 }
 
 .faq {
