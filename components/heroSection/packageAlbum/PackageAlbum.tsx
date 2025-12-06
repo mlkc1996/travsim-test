@@ -1,77 +1,62 @@
-import styles from "@/components/heroSection/HeroSection.module.scss";
-import { Icon } from "@/shared/UI/icon/Icon";
+"use client";
 
-const packages = [
-  {
-    volumn: `5 GB`,
-    days: 14,
-    price: "$ 29.99",
-  },
-  {
-    volumn: `5 GB`,
-    days: 21,
-    price: "$ 29.99",
-  },
-  {
-    volumn: `5 GB`,
-    days: 21,
-    price: "$ 29.99",
-  },
-  {
-    volumn: `5 GB`,
-    days: 30,
-    price: "$ 29.99",
-  },
-  {
-    volumn: `5 GB`,
-    days: 30,
-    price: "$ 29.99",
-  },
-  {
-    volumn: `5 GB`,
-    days: 30,
-    price: "$ 29.99",
-  },
-];
+import { Image } from "@/shared/UI/image/Image";
+import { useState } from "react";
+import styles from "./../HeroSection.module.scss";
 
-export const Packages = () => {
-  return (
-    <div className="flex flex-col gap-[1.6rem]">
-      <h4 className="text-level-normal-200 text-font-x-bold">
-        Choose your USA eSIM package
-      </h4>
-      <div className={styles.packages}>
-        {packages.map((item, index) => {
-          return <Package key={index} {...item} isBest={index === 1} />;
-        })}
-      </div>
-    </div>
-  );
+const data = {
+  flag_url: `${process.env.IMAGE_PATH}/us-flag.png`,
+  images: [`${process.env.IMAGE_PATH}/productLargeImg.jpg`, "", "", "", ""],
 };
 
-export const Package = ({ isBest, volumn, days, price }: any) => {
+export const PackageAlbum = ({
+  images = data.images,
+  flag_url = data.flag_url,
+}: any) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const main = images[activeIndex];
+
   return (
-    <div className={`${isBest ? styles.best : ""} ${styles.package}`}>
-      {isBest && (
-        <>
-          <div className={`${styles["best-value-tag"]} text-font-x-bold`}>
-            Best value
-          </div>
-          <div className={`${styles["best-value-bg"]}`}></div>
-          <div className={`${styles["best-value-fore-bg"]}`}></div>
-        </>
-      )}
-      <div className={styles["package-stat"]}>
-        <div className="flex gap-[8px] items-center">
-          <Icon icon={"switch-vertical-01"} />
-          <p className="text-level-normal-100 text-font-x-bold">{volumn}</p>
-        </div>
-        <div className="flex gap-[8px] items-center">
-          <Icon icon={"calendar"} />
-          <p className="text-level-normal-100 text-font-normal">{days} Days</p>
-        </div>
+    <div className={styles.packageAlbum}>
+      <div style={{ position: "relative" }}>
+        <Image
+          src={flag_url}
+          alt="flag"
+          width={64}
+          height={64}
+          className={styles.flagImage}
+        />
+        <Image
+          style={{
+            objectFit: "cover",
+            objectPosition: "5%",
+          }}
+          src={main}
+          alt={""}
+          className={styles.mainImage}
+        />
       </div>
-      <span className="text-font-x-bold text-level-normal">{price}</span>
+      <div className={styles.selection}>
+        {images.map((src: string, index: number) => {
+          return (
+            <Image
+              className={`${index === activeIndex ? styles.active : ""} ${
+                styles.image
+              }`}
+              key={index}
+              src={src}
+              alt=""
+              style={{
+                objectFit: "cover",
+                objectPosition: "5%",
+              }}
+              onClick={() => {
+                setActiveIndex(index);
+              }}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

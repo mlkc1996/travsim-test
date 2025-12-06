@@ -6,7 +6,8 @@
 
 .container {
   padding: 7rem 8rem;
-  gap: 4rem;
+  gap: 5.6rem;
+  align-items: start;
 }
 
 .packages {
@@ -155,6 +156,50 @@
       &.active {
         background-color: #f3f3f3;
         border-color: #101828;
+      }
+    }
+  }
+}
+
+.packageAlbum {
+  width: 46rem;
+  height: 56rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  .mainImage {
+    border-radius: var(--rounded);
+    width: 46rem;
+    height: 46rem;
+    img {
+    }
+  }
+
+  .flagImage {
+    position: absolute !important;
+    top: 5%;
+    left: 5%;
+    border-radius: 50%;
+    height: 6.4rem;
+    width: 6.4rem;
+    z-index: 1;
+  }
+
+  .selection {
+    display: flex;
+    align-items: center;
+    gap: inherit;
+    .image {
+      &:hover {
+        cursor: pointer;
+      }
+
+      width: 8rem;
+      height: 8rem;
+      border-radius: 12px;
+      &.active {
+        outline: 2px solid #000;
       }
     }
   }
