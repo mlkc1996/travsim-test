@@ -45,7 +45,7 @@ export const GetStarted = ({
         {title}
       </h3>
       {subtitle && (
-        <p className="text-level-normal-200 text-font-normal">{subtitle}</p>
+        <p className="text-level-normal-200 text-font-normal-100">{subtitle}</p>
       )}
       <div className={styles.instructions}>
         {instructions.map(({ title, paragraph }: any, index: number) => {

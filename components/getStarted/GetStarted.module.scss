@@ -1,15 +1,38 @@
+@use "@/shared/scss/breakpoint" as *;
+
 .container {
   padding-top: 7rem;
   padding-bottom: 14rem;
+  @include adjustMobileYPadding(3rem);
 }
 
 .instructions {
   display: flex;
   gap: 3.2rem;
   max-width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, auto);
+
+  @container (width <= 1300px) {
+    gap: 2.8rem;
+  }
+
+  @media screen and (width <= $breakpoint-tablet) {
+    gap: 1.6rem;
+  }
+
+  @media screen and (width <= 640px) {
+    grid-template-columns: 1fr;
+  }
 }
 
-:global(.box).instruction {
+.instruction {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 4;
+
   max-width: 40rem;
 
   background-color: var(--bg-secondary);
@@ -17,12 +40,23 @@
   border-radius: var(--rounded);
 
   :global(.box-image) {
-    width: 30rem;
+    max-width: 100%;
+    width: 100%;
     height: 31rem;
   }
 
   :global(.icon) {
     width: var(--icon-size-xl);
     height: var(--icon-size-xl);
+  }
+
+  @container (width <= 1300px) {
+    padding: 3.6rem;
+  }
+
+  @media screen and (width <= $breakpoint-tablet) {
+    gap: 2.4rem;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
   }
 }
