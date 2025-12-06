@@ -7,7 +7,7 @@ export const HeroHeader = () => {
       <h3 className="text-level-header-200 text-font-x-bold">
         eSIM for the Saint Vincent & Grenadines
       </h3>
-      <div className="flex items-center gap-[19px]">
+      <div className={`flex items-center gap-[19px] ${styles.reviews}`}>
         <span className="text-level-normal-100 text-font-x-bold">
           Excellent
         </span>
@@ -16,6 +16,7 @@ export const HeroHeader = () => {
             .fill(null)
             .map((_, index) => (
               <Image
+                className={styles.ratings}
                 key={index}
                 width={22.5}
                 height={22.5}
@@ -31,6 +32,7 @@ export const HeroHeader = () => {
           width={87}
           height={22.5}
           src={`${process.env.IMAGE_PATH}/trust-pilot.png`}
+          className={styles.pilot}
           alt={"trust pilot"}
         />
       </div>
