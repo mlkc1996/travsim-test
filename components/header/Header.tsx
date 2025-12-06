@@ -4,6 +4,7 @@ import { SearchInput } from "../searchInput/SearchInput";
 import styles from "./Header.module.scss";
 import { useEffect, useRef } from "react";
 import { Image } from "@/shared/UI/image/Image";
+import { HeaderButtons } from "./headerButtons/HeaderButtons";
 
 export const Header = () => {
   const headerRef = useRef<HTMLElement>(null);
@@ -41,15 +42,7 @@ export const Header = () => {
           className={styles.logo}
         />
         <SearchInput />
-        <div>
-          <div>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-          </div>
-          <button></button>
-        </div>
+        <HeaderButtons />
       </div>
       <div className={styles["box-shadow"]}></div>
     </header>

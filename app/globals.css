@@ -198,6 +198,14 @@ i.icon {
   &.icon-search-md::before {
     content: url("/assets/icons/search-md.svg");
   }
+
+  &.icon-translate-01::before {
+    content: url("/assets/icons/translate-01.svg");
+  }
+
+  &.icon-currency-dollar-circle::before {
+    content: url("/assets/icons/currency-dollar-circle.svg");
+  }
 }
 
 .cta {
