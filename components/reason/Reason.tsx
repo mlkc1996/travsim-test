@@ -63,7 +63,7 @@ const data = {
 
 export const Reason = ({ title = data.title, reasons = data.reasons }: any) => {
   return (
-    <SectionContainer className={styles.container}>
+    <SectionContainer className={`${styles.container} container-px-100`}>
       <h3 className="text-level-header text-font-x-bold">{title}</h3>
       <div className={styles.reasonContainer}>
         {reasons?.map?.(({ title, paragraph }: any, index: number) => {

@@ -64,7 +64,7 @@ export const Testimonial = ({
   testimonials = a.testimonials,
 }: any) => {
   return (
-    <SectionContainer>
+    <SectionContainer className={`${styles.container} container-px-200`}>
       <h3 className="text-level-header text-font-x-bold">{title}</h3>
       {subtitle && (
         <p className="text-level-normal-200 text-font-normal">{subtitle}</p>

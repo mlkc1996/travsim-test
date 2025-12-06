@@ -11,10 +11,10 @@ export const HeroSection = () => {
     <SectionContainer
       containerClassName={styles.background}
       orientation="row"
-      className={styles.container}
+      className={`${styles.container} container-px-100`}
     >
       <PackageAlbum />
-      <main className="flex flex-col gap-[56px]">
+      <main className="flex flex-col gap-[56px]" data-container>
         <HeroHeader />
         <Packages />
         <Services />

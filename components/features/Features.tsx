@@ -70,7 +70,7 @@ export const Features = ({
   features = data.features,
 }: FeaturesProps) => {
   return (
-    <SectionContainer className={styles.container}>
+    <SectionContainer className={`${styles.container} container-px-100`}>
       <h3 className="text-level-header w-full text-left text-font-x-bold">
         {title}
       </h3>

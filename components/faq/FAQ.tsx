@@ -85,7 +85,7 @@ const FAQRow = ({ question, answer }: any) => {
 
 export const FAQ = ({ title = data.title, faqs = data.faqs }: any) => {
   return (
-    <SectionContainer className={styles.container}>
+    <SectionContainer className={`${styles.container} container-px-300`}>
       <h3 className="text-level-header text-font-x-bold">{title}</h3>
       <div className={styles.faqContainer}>
         {faqs.map(({ question, answer }: any, index: number) => {

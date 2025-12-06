@@ -2,12 +2,16 @@
 
 import { SearchInput } from "../searchInput/SearchInput";
 import styles from "./Header.module.scss";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Image } from "@/shared/UI/image/Image";
 import { HeaderButtons } from "./headerButtons/HeaderButtons";
+import { Icon } from "@/shared/UI/icon/Icon";
+import { HeaderMobileMenu } from "./headerMobileMenu/HeaderMobileMenu";
 
 export const Header = () => {
   const headerRef = useRef<HTMLElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const header = headerRef.current;
@@ -33,18 +37,33 @@ export const Header = () => {
     };
   }, []);
 
+  const openClass = open ? `${styles.open}` : "";
+
   return (
-    <header className={styles.header} ref={headerRef}>
-      <div className={styles.container}>
+    <header className={`${styles.header} ${openClass} `} ref={headerRef}>
+      {/* <div className={styles["box-shadow"]}></div> */}
+      <div className={`${styles.container} ${openClass}`}>
         <Image
           src={`${process.env.IMAGE_PATH}/logo.png`}
+          style={{
+            objectFit: "fill",
+          }}
           alt=""
           className={styles.logo}
         />
-        <SearchInput />
+        <SearchInput ref={inputRef} className={`shrink ${styles.search}`} />
         <HeaderButtons />
+
+        <button
+          className={styles.hamburgerMenu}
+          onClick={() => {
+            setOpen((prev) => !prev);
+          }}
+        >
+          <Icon icon={open ? "x-close" : "hamburger-menu"} />
+        </button>
       </div>
-      <div className={styles["box-shadow"]}></div>
+      {open && <HeaderMobileMenu ref={inputRef} />}
     </header>
   );
 };

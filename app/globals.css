@@ -13,14 +13,27 @@
   --rounded-s: 15px;
   --bg-secondary: #f8fafd;
   --color-red: #b02235;
+
+  --icon-size-md: 2.4rem;
+  --icon-size-lg: 3.6rem;
+  --icon-size-xl: 4.8rem;
 }
 
 html {
   font-size: 62.5%;
+
+  @media screen and (width <= 1024px) {
+    font-size: 56.25%;
+  }
 }
 
 body {
   font-size: 1.6rem;
+}
+
+[data-container] {
+  container-type: inline-size;
+  width: 100%;
 }
 
 button {
@@ -86,6 +99,8 @@ i.icon {
   background-position: center;
   /* aspect-ratio: 1; */
   /* width: 24px; */
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
 
   &::before {
     width: 100%;
@@ -95,116 +110,135 @@ i.icon {
     max-height: 100%;
   }
 
-  &.icon-bar-chart::before {
-    content: url("/assets/icons/bar-chart.svg");
+  .icon-md {
+    width: var(--icon-size-md);
+    height: var(--icon-size-md);
   }
 
-  &.icon-data::before {
-    content: url("/assets/icons/data.svg");
+  .icon-lg {
+    width: var(--icon-size-lg);
+    height: var(--icon-size-lg);
   }
 
-  &.icon-download-02::before {
-    content: url("/assets/icons/download-02.svg");
+  .icon-xl {
+    width: var(--icon-size-xl);
+    height: var(--icon-size-xl);
   }
 
-  &.icon-download-04::before {
-    content: url("/assets/icons/download-04.svg");
+  &.icon-bar-chart {
+    background-image: url("/assets/icons/bar-chart.svg");
   }
 
-  &.icon-file::before {
-    content: url("/assets/icons/file.svg");
+  &.icon-data {
+    background-image: url("/assets/icons/data.svg");
   }
 
-  &.icon-hand-01::before {
-    content: url("/assets/icons/hand-01.svg");
+  &.icon-download-02 {
+    background-image: url("/assets/icons/download-02.svg");
   }
 
-  &.icon-layers-two-01::before {
-    content: url("/assets/icons/layers-two-01.svg");
+  &.icon-download-04 {
+    background-image: url("/assets/icons/download-04.svg");
   }
 
-  &.icon-logo::before {
-    content: url("/assets/icons/logo.svg");
+  &.icon-file {
+    background-image: url("/assets/icons/file.svg");
   }
 
-  &.icon-marker-pin-04::before {
-    content: url("/assets/icons/marker-pin-04.svg");
+  &.icon-hand-01 {
+    background-image: url("/assets/icons/hand-01.svg");
   }
 
-  &.icon-shopping-bag-02::before {
-    content: url("/assets/icons/shopping-bag-02.svg");
+  &.icon-layers-two-01 {
+    background-image: url("/assets/icons/layers-two-01.svg");
   }
 
-  &.icon-signal::before {
-    content: url("/assets/icons/signal.svg");
+  &.icon-logo {
+    background-image: url("/assets/icons/logo.svg");
   }
 
-  &.icon-support::before {
-    content: url("/assets/icons/support.svg");
+  &.icon-marker-pin-04 {
+    background-image: url("/assets/icons/marker-pin-04.svg");
   }
 
-  &.icon-tool-01::before {
-    content: url("/assets/icons/tool-01.svg");
+  &.icon-shopping-bag-02 {
+    background-image: url("/assets/icons/shopping-bag-02.svg");
   }
 
-  &.icon-tag-01::before {
-    content: url("/assets/icons/tag-01.svg");
+  &.icon-signal {
+    background-image: url("/assets/icons/signal.svg");
   }
 
-  &.icon-zap-fast::before {
-    content: url("/assets/icons/zap-fast.svg");
+  &.icon-support {
+    background-image: url("/assets/icons/support.svg");
   }
 
-  &.icon-check::before {
-    content: url("/assets/icons/check.svg");
+  &.icon-tool-01 {
+    background-image: url("/assets/icons/tool-01.svg");
   }
 
-  &.icon-x-close::before {
-    content: url("/assets/icons/x-close.svg");
+  &.icon-tag-01 {
+    background-image: url("/assets/icons/tag-01.svg");
   }
 
-  &.icon-plus::before {
-    content: url("/assets/icons/plus.svg");
+  &.icon-zap-fast {
+    background-image: url("/assets/icons/zap-fast.svg");
   }
 
-  &.icon-minus::before {
-    content: url("/assets/icons/minus.svg");
+  &.icon-check {
+    background-image: url("/assets/icons/check.svg");
   }
 
-  &.icon-plus::before {
-    content: url("/assets/icons/plus.svg");
+  &.icon-x-close {
+    background-image: url("/assets/icons/x-close.svg");
   }
 
-  &.icon-credit-card-02::before {
-    content: url("/assets/icons/credit-card-02.svg");
+  &.icon-plus {
+    background-image: url("/assets/icons/plus.svg");
   }
 
-  &.icon-calendar::before {
-    content: url("/assets/icons/calendar.svg");
+  &.icon-minus {
+    background-image: url("/assets/icons/minus.svg");
   }
 
-  &.icon-headphones-02::before {
-    content: url("/assets/icons/headphones-02.svg");
+  &.icon-plus {
+    background-image: url("/assets/icons/plus.svg");
   }
 
-  &.icon-shield-tick::before {
-    content: url("/assets/icons/shield-tick.svg");
+  &.icon-credit-card-02 {
+    background-image: url("/assets/icons/credit-card-02.svg");
   }
 
-  &.icon-switch-vertical-01::before {
-    content: url("/assets/icons/switch-vertical-01.svg");
+  &.icon-calendar {
+    background-image: url("/assets/icons/calendar.svg");
   }
 
-  &.icon-search-md::before {
-    content: url("/assets/icons/search-md.svg");
+  &.icon-headphones-02 {
+    background-image: url("/assets/icons/headphones-02.svg");
   }
 
-  &.icon-translate-01::before {
-    content: url("/assets/icons/translate-01.svg");
+  &.icon-shield-tick {
+    background-image: url("/assets/icons/shield-tick.svg");
   }
 
-  &.icon-currency-dollar-circle::before {
-    content: url("/assets/icons/currency-dollar-circle.svg");
+  &.icon-switch-vertical-01 {
+    background-image: url("/assets/icons/switch-vertical-01.svg");
+  }
+
+  &.icon-search-md {
+    background-image: url("/assets/icons/search-md.svg");
+  }
+
+  &.icon-translate-01 {
+    background-image: url("/assets/icons/translate-01.svg");
+  }
+
+  &.icon-currency-dollar-circle {
+    background-image: url("/assets/icons/currency-dollar-circle.svg");
+  }
+
+  &.icon-hamburger-menu {
+    background-image: url("/assets/icons/hamburger-menu.svg");
   }
 }
 
@@ -222,4 +256,19 @@ i.icon {
   max-width: 32rem;
   height: 4.4rem;
   width: 100%;
+}
+
+.container-px-100 {
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+
+.container-px-200 {
+  padding-left: 10.4rem;
+  padding-right: 10.4rem;
+}
+
+.container-px-300 {
+  padding-left: 23.3rem;
+  padding-right: 23.3rem;
 }

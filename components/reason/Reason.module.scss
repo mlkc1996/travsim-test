@@ -1,5 +1,6 @@
 .container {
-  padding: 7rem 8rem;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
   gap: 4rem;
 }
 
@@ -13,6 +14,11 @@
   border: 1px solid #bfc8d0;
   padding: 2.4rem 3.2rem 3.2rem;
   gap: 1.6rem;
+
+  :global(.icon) {
+    width: var(--icon-size-xl);
+    height: var(--icon-size-xl);
+  }
 }
 
 .image {

@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  container-type: inline-size;
 }
 
 .content-container {
@@ -12,5 +13,4 @@
   justify-content: center;
   align-items: center;
   gap: 24px;
-  container-type: inline-size;
 }

@@ -138,7 +138,7 @@ const Accordion = ({
           description={description}
         />
         <div
-          className="flex flex-col gap-[8px] mt-auto"
+          className="flex flex-col gap-[8px] mt-auto "
           style={{ marginTop: "auto" }}
         >
           {apps.map(({ iconId, iconUrl, text }: any, index: number) => {
@@ -176,11 +176,11 @@ export const BenefitsSection = ({
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <SectionContainer className={styles.container}>
+    <SectionContainer className={`${styles.container} container-px-200`}>
       <h3 className="text-level-header text-font-x-bold w-full text-left">
         {title}
       </h3>
-      <ul className="self-start flex gap-[24px]">
+      <ul className="self-start flex gap-[2.4rem] flex-wrap ">
         {accordions.map(({ title }: any, index: number) => {
           return (
             <li key={index}>

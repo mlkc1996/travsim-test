@@ -22,7 +22,7 @@ export const AlsoLike = ({
 }: AlsoLikeProps) => {
   return (
     <SectionContainer
-      className={styles.container}
+      className={`${styles.container} container-px-100`}
       containerClassName={styles.background}
     >
       <Image src={""} alt={""} className={styles.image} />

@@ -5,9 +5,15 @@
 }
 
 .container {
-  padding: 7rem 8rem;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+
   gap: 5.6rem;
   align-items: start;
+
+  @container (width <= 768px) {
+    flex-direction: column;
+  }
 }
 
 .packages {
@@ -15,6 +21,10 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1.6rem;
   align-items: center;
+
+  @container (width <=700px ) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .package {
@@ -92,8 +102,17 @@
 .services {
   display: flex;
   align-items: center;
-  // gap: 4rem;
   justify-content: space-between;
+
+  @container (width <= 700px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  @container (width <= 550px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   div {
     display: flex;
@@ -128,6 +147,7 @@
     display: flex;
     align-items: center;
     transition: box-shadow 0.2 ease;
+    justify-content: center;
 
     &:hover {
       box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -144,6 +164,7 @@
     display: flex;
     align-items: center;
     gap: 2.4rem;
+    flex-wrap: wrap;
 
     button {
       padding: 12px 16px;

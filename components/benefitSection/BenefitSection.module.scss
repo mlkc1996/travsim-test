@@ -1,7 +1,8 @@
 @use "sass:map";
 
 .container {
-  padding: 7rem 10.4rem;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
   align-items: flex-start;
 }
 
@@ -24,6 +25,16 @@
   border-radius: var(--rounded);
   overflow: hidden;
   gap: 2px;
+
+  @container (width <= 1300px) {
+  }
+
+  @container (width <= 1024px) {
+  }
+
+  @container (width <= 768px) {
+    flex-direction: column;
+  }
 }
 
 $bg-colors: (

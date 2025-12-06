@@ -106,7 +106,7 @@ export const Compare = ({
   features = data.features,
 }: any) => {
   return (
-    <SectionContainer className={styles.container}>
+    <SectionContainer className={`${styles.container} container-px-200`}>
       <h3 className="text-level-header text-font-x-bold">{title}</h3>
       <table className={styles.table}>
         <thead>

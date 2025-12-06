@@ -29,7 +29,7 @@ export const Resources = ({
   resources = data.resources,
 }: any) => {
   return (
-    <SectionContainer className={styles.container}>
+    <SectionContainer className={`${styles.container} container-px-200`}>
       <h3 className="text-level-header text-font-x-bold text-left w-full">
         {title}
       </h3>

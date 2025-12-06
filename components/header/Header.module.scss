@@ -1,29 +1,26 @@
+:root {
+  --header-height: 80px;
+}
+
+$border-bottom: 1px solid #ebebeb;
+
 .header.sticky {
   position: sticky;
   top: 0;
   z-index: 99;
-
-  .box-shadow {
-    display: block;
-    position: absolute;
-  }
 }
 
 .header {
   background-color: #fff;
-  height: 80px;
-
-  border: 1px solid #ebebeb;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 
-  .box-shadow {
-    display: none;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  container-type: inline-size;
+  border-bottom: $border-bottom;
+
+  &.open {
+    border-bottom: none;
   }
 }
 
@@ -33,11 +30,45 @@
   display: flex;
   padding: 1.6rem 8rem;
   gap: 8rem;
+  z-index: 1;
+  height: var(--header-height);
+
+  align-items: center;
+
+  @container (width <= 1300px) {
+    padding: 1.6rem 4.8rem;
+    gap: 4.8rem;
+  }
+
+  @container (width <= 1024px) {
+    padding: 1.6rem 3.2rem;
+    gap: 3.2rem;
+  }
+
+  @container (width <= 768px) {
+    --header-height: 64px;
+    .search {
+      display: none;
+    }
+  }
+
+  &.open {
+    border-bottom: $border-bottom;
+  }
 }
 
 .logo {
   width: 204px;
   height: 33px;
+  flex-shrink: 0;
+
+  @container (width <= 1024px) {
+    width: 160px;
+
+    img {
+      object-fit: cover;
+    }
+  }
 }
 
 .HeaderButtons {
@@ -45,17 +76,13 @@
   align-items: center;
   gap: 4rem;
 
+  flex-shrink: 0;
   margin-left: auto;
 
   & > div {
     display: flex;
     align-items: center;
     gap: 3.2rem;
-
-    :global(.icon) {
-      width: 24px;
-      height: 24px;
-    }
   }
 
   .divider {
@@ -63,5 +90,71 @@
     background-color: #000;
     border-radius: 8px;
     height: 40px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+  }
+
+  @container (width <= 1300px) {
+    gap: 2.4rem;
+
+    & > div {
+      gap: 1.6rem;
+    }
+  }
+
+  @container (width <= 1024px) {
+    gap: 1.6rem;
+
+    & > div {
+      gap: 10px;
+    }
+  }
+
+  @container (width <= 768px) {
+    :global(.cta),
+    & > div {
+      display: none;
+    }
+  }
+}
+
+.hamburgerMenu {
+  display: none;
+  @container (width <= 768px) {
+    display: inline;
+  }
+}
+
+.box-shadow {
+  display: none;
+  position: absolute;
+  height: var(--header-height);
+  width: 100%;
+  top: 0;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+
+.HeaderMobileMenu {
+  @container (width > 768px) {
+    display: none;
+  }
+
+  width: 100%;
+  padding: 1.6rem;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  .search {
+    max-width: unset;
+    width: 100%;
+  }
+
+  nav {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-row: span 5;
   }
 }

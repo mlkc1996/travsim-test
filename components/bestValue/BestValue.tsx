@@ -18,7 +18,7 @@ export const BestValue = ({
   return (
     <SectionContainer
       containerClassName={styles.background}
-      className={styles.container}
+      className={`${styles.container} container-px-200`}
     >
       <p className="text-level-normal-200 text-font-normal">{title}</p>
       <h3 className="text-level-header text-font-x-bold">{bestValueText}</h3>

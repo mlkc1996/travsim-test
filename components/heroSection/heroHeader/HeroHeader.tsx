@@ -1,8 +1,9 @@
 import { Image } from "@/shared/UI/image/Image";
+import styles from "./../HeroSection.module.scss";
 
 export const HeroHeader = () => {
   return (
-    <header className="flex flex-col gap-[16px]">
+    <header className={`flex flex-col gap-[16px]`}>
       <h3 className="text-level-header-200 text-font-x-bold">
         eSIM for the Saint Vincent & Grenadines
       </h3>

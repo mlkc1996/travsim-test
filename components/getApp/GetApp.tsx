@@ -5,7 +5,10 @@ import styles from "./GetApp.module.scss";
 
 export const GetApp = () => {
   return (
-    <SectionContainer orientation="row" className={styles.container}>
+    <SectionContainer
+      orientation="row"
+      className={`${styles.container} container-px-200`}
+    >
       <Image
         className={styles.image}
         fill
