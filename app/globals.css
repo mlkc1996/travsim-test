@@ -31,6 +31,10 @@ button {
   font-size: 3.2rem;
 }
 
+.text-level-header-200 {
+  font-size: 3.6rem;
+}
+
 .text-level-subheader {
   font-size: 2.4rem;
 }
@@ -165,6 +169,30 @@ i.icon {
 
   &.icon-minus::before {
     content: url("/assets/icons/minus.svg");
+  }
+
+  &.icon-plus::before {
+    content: url("/assets/icons/plus.svg");
+  }
+
+  &.icon-credit-card-02::before {
+    content: url("/assets/icons/credit-card-02.svg");
+  }
+
+  &.icon-calendar::before {
+    content: url("/assets/icons/calendar.svg");
+  }
+
+  &.icon-headphones-02::before {
+    content: url("/assets/icons/headphones-02.svg");
+  }
+
+  &.icon-shield-tick-02::before {
+    content: url("/assets/icons/shield-tick-02.svg");
+  }
+
+  &.icon-switch-vertical-01::before {
+    content: url("/assets/icons/switch-vertical-01.svg");
   }
 }
 
