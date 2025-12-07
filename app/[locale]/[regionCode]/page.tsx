@@ -20,12 +20,6 @@ type Props = {
   params: Promise<{ locale: string; regionCode: string }>;
 };
 
-const sleep = (timeout: number) => {
-  return new Promise((res) => {
-    setTimeout(res, timeout);
-  });
-};
-
 const HeroSectionComponent = withError(
   withLoading(
     async ({ locale, regionCode }: { locale: string; regionCode: string }) => {
