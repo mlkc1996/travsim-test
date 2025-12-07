@@ -2,67 +2,22 @@ import { SectionContainer } from "@/shared/UI/sectionContainer/SectionContainer"
 import styles from "./Testimonial.module.scss";
 import { Image } from "@/shared/UI/image/Image";
 
-const a = {
-  title: "Hear what travellers say about use",
-  subtitle: "Your United States of America eSim features",
-  testimonials: [
-    {
-      userId: 0,
-      userName: "Jane Foster",
-      userProfile: "avatar.png",
-      comment:
-        "Whether you're in New York City, Los Angeles, or somewhere in between, stay connected to friends and family back home in South Africa.",
-    },
-    {
-      userId: 0,
-      userName: "Jane Foster",
-      userProfile: "avatar.png",
-      comment:
-        "Whether you're in New York City, Los Angeles, or somewhere in between, stay connected to friends and family back home in South Africa.",
-    },
-    {
-      userId: 0,
-      userName: "Jane Foster",
-      userProfile: "avatar.png",
-      comment:
-        "Whether you're in New York City, Los Angeles, or somewhere in between, stay connected to friends and family back home in South Africa.",
-    },
-    {
-      userId: 0,
-      userName: "Jane Foster",
-      userProfile: "avatar.png",
-      comment:
-        "Whether you're in New York City, Los Angeles, or somewhere in between, stay connected to friends and family back home in South Africa.",
-    },
-    {
-      userId: 0,
-      userName: "Jane Foster",
-      userProfile: "avatar.png",
-      comment:
-        "Whether you're in New York City, Los Angeles, or somewhere in between, stay connected to friends and family back home in South Africa.",
-    },
-    {
-      userId: 0,
-      userName: "Jane Foster",
-      userProfile: "avatar.png",
-      comment:
-        "Whether you're in New York City, Los Angeles, or somewhere in between, stay connected to friends and family back home in South Africa.",
-    },
-    {
-      userId: 0,
-      userName: "Jane Foster",
-      userProfile: "avatar.png",
-      comment:
-        "Whether you're in New York City, Los Angeles, or somewhere in between, stay connected to friends and family back home in South Africa.",
-    },
-  ],
+export type TestimonialProps = {
+  title: string;
+  subtitle: string;
+  testimonials: {
+    userId: number;
+    userName: string;
+    userProfile: string;
+    comment: string;
+  }[];
 };
 
 export const Testimonial = ({
-  title = a.title,
-  subtitle = a.subtitle,
-  testimonials = a.testimonials,
-}: any) => {
+  title,
+  subtitle,
+  testimonials,
+}: TestimonialProps) => {
   return (
     <SectionContainer className={`${styles.container} container-px-200`}>
       <h3 className="text-level-header text-font-x-bold">{title}</h3>

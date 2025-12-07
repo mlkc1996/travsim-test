@@ -1,9 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import { Image } from "@/shared/UI/image/Image";
 import { SectionContainer } from "@/shared/UI/sectionContainer/SectionContainer";
 import styles from "./GetApp.module.scss";
+import { useTranslations } from "next-intl";
 
 export const GetApp = () => {
+  const t = useTranslations("GetApp");
   return (
     <SectionContainer
       orientation="row"
@@ -17,11 +21,9 @@ export const GetApp = () => {
       />
       <div className="flex flex-col  md:gap-[5rem] gap-[12px]">
         <div className="flex flex-col md:gap-[2.2rem] gap-[6px]">
-          <h3 className="text-level-header text-font-x-bold">
-            Wanna try it first? Get the App
-          </h3>
+          <h3 className="text-level-header text-font-x-bold">{t("title")}</h3>
           <p className="text-level-normal-100 text-font-normal">
-            Download our app and get 500MB free data to try in your hometown
+            {t("description")}
           </p>
         </div>
         <div className="flex gap-[9.45px] items-center">

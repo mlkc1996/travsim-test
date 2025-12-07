@@ -83,7 +83,15 @@ const FAQRow = ({ question, answer }: any) => {
   );
 };
 
-export const FAQ = ({ title = data.title, faqs = data.faqs }: any) => {
+export type FAQProps = {
+  title: string;
+  faqs: {
+    question: string;
+    answer: string;
+  }[];
+};
+
+export const FAQ = ({ title, faqs }: FAQProps) => {
   return (
     <SectionContainer className={`${styles.container} container-px-300`}>
       <h3 className="text-level-header text-font-x-bold">{title}</h3>

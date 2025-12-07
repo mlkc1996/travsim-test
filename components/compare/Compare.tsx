@@ -3,88 +3,6 @@ import styles from "./Compare.module.scss";
 import { Icon } from "@/shared/UI/icon/Icon";
 import { Image } from "@/shared/UI/image/Image";
 
-const data = {
-  title: "Our eSIM vs. the Competition",
-  headers: [
-    "OUR ESIM",
-    "OTHER ESIM PROVIDERS",
-    "WIFI HOTSPOTS",
-    "INTERNATIONAL ROAMING",
-  ],
-  features: [
-    {
-      title: "Low usage cost",
-      our: "Yes",
-      other: "Yes",
-      wifi: "Yes",
-      roaming: "No",
-    },
-    {
-      title: "No activation fees",
-      our: "Yes",
-      other: "Yes",
-      wifi: "Yes",
-      roaming: "No",
-    },
-    {
-      title: "No hidden fees",
-      our: "Yes",
-      other: "Yes",
-      wifi: "Yes",
-      roaming: "No",
-    },
-    {
-      title: "No roaming charges",
-      our: "Yes",
-      other: "Yes",
-      wifi: "Yes",
-      roaming: "No",
-    },
-    {
-      title: "Nationwide coverage",
-      our: "Yes",
-      other: "Yes",
-      wifi: "No",
-      roaming: "No",
-    },
-    {
-      title: "Fast internet speeds",
-      our: "Yes",
-      other: "Yes",
-      wifi: "No",
-      roaming: "No",
-    },
-    {
-      title: "No throttling data speeds",
-      our: "Yes",
-      other: "No",
-      wifi: "No",
-      roaming: "Yes",
-    },
-    {
-      title: "One eSIM. Multiple destinations",
-      our: "Yes",
-      other: "No",
-      wifi: "No",
-      roaming: "No",
-    },
-    {
-      title: "No log-in process for usage",
-      our: "Yes",
-      other: "Yes",
-      wifi: "No",
-      roaming: "Yes",
-    },
-    {
-      title: "Can be used anywhere",
-      our: "Yes",
-      other: "Yes",
-      wifi: "No",
-      roaming: "No",
-    },
-  ],
-};
-
 export const TableCellContent = ({ content, clasName }: any) => {
   switch (content) {
     case "Yes":
@@ -100,11 +18,19 @@ export const TableCellContent = ({ content, clasName }: any) => {
   }
 };
 
-export const Compare = ({
-  title = data.title,
-  headers = data.headers,
-  features = data.features,
-}: any) => {
+export type CompareProps = {
+  title: string;
+  headers: string[];
+  features: {
+    title: string;
+    our: string;
+    other: string;
+    wifi: string;
+    roaming: string;
+  }[];
+};
+
+export const Compare = ({ title, headers, features }: CompareProps) => {
   return (
     <SectionContainer className={`${styles.container} container-px-200`}>
       <h3 className="text-level-header text-font-x-bold">{title}</h3>

@@ -1,12 +1,19 @@
 import { SectionContainer } from "@/shared/UI/sectionContainer/SectionContainer";
 import styles from "./HeroSection.module.scss";
-import { HeroHeader } from "./heroHeader/HeroHeader";
-import { Packages } from "./packages/Packages";
-import { Services } from "./services/Services";
-import { Tabs } from "./tabs/Tabs";
+import { HeroHeader, HeroHeaderProps } from "./heroHeader/HeroHeader";
+import { Packages, PackagesProps } from "./packages/Packages";
+import { Services, ServicesProps } from "./services/Services";
+import { Tabs, TabsProps } from "./tabs/Tabs";
 import { PackageAlbum } from "./packageAlbum/PackageAlbum";
 
-export const HeroSection = () => {
+export type HeroSectionProps = {
+  header: HeroHeaderProps;
+  packages: PackagesProps;
+  services: ServicesProps["services"];
+  tabs: TabsProps["tabs"];
+};
+
+export const HeroSection = (props: HeroSectionProps) => {
   return (
     <SectionContainer
       containerClassName={styles.background}
@@ -15,10 +22,10 @@ export const HeroSection = () => {
     >
       <PackageAlbum />
       <main className="flex flex-col gap-[56px]" data-container>
-        <HeroHeader />
-        <Packages />
-        <Services />
-        <Tabs />
+        <HeroHeader {...props.header} />
+        <Packages {...props.packages} />
+        <Services services={props.services} />
+        <Tabs tabs={props.tabs} />
       </main>
     </SectionContainer>
   );

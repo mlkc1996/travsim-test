@@ -3,31 +3,12 @@ import { Image } from "@/shared/UI/image/Image";
 import Link from "next/link";
 import styles from "./Resources.module.scss";
 
-const data = {
-  title: "Useful resources from our blog",
-  resources: [
-    {
-      title: "25 Travel tips for the United Kingdom",
-      paragraph:
-        "Whether you're in New York City, Los Angeles, or somewhere in between, stay connected to friends and family back home in South Africa.",
-    },
-    {
-      title: "25 Travel tips for the United Kingdom",
-      paragraph:
-        "Whether you're in New York City, Los Angeles, or somewhere in between, stay connected to friends and family back home in South Africa.",
-    },
-    {
-      title: "25 Travel tips for the United Kingdom",
-      paragraph:
-        "Whether you're in New York City, Los Angeles, or somewhere in between, stay connected to friends and family back home in South Africa.",
-    },
-  ],
+export type ResourcesProps = {
+  title: string;
+  resources: { title: string; paragraph: string }[];
 };
 
-export const Resources = ({
-  title = data.title,
-  resources = data.resources,
-}: any) => {
+export const Resources = ({ title, resources }: ResourcesProps) => {
   return (
     <SectionContainer className={`${styles.container} container-px-200`}>
       <h3 className="text-level-header text-font-x-bold text-left w-full">

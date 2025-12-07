@@ -1,21 +1,19 @@
+"use client";
+
 import { Icon } from "@/shared/UI/icon/Icon";
 import styles from "./../HeroSection.module.scss";
-const services = [
-  {
-    icon: "shield-tick",
-    title: "Safe & Secure Checkout",
-  },
-  {
-    icon: "credit-card-02",
-    title: "Quick & Easy Recharge",
-  },
-  {
-    icon: "headphones-02",
-    title: "24/7 Customer Support",
-  },
-];
+import { useTranslations } from "next-intl";
 
-export const Services = ({}: any) => {
+export type ServicesProps = {
+  services: {
+    icon: string;
+    title: string;
+  }[];
+};
+
+export const Services = ({ services }: ServicesProps) => {
+  const t = useTranslations();
+
   return (
     <div className={styles["services"]}>
       {services.map(({ icon, title }, index) => (
@@ -29,7 +27,7 @@ export const Services = ({}: any) => {
         </div>
       ))}
       <button className="text-level-normal-100 text-font-medium">
-        Check Device Compatibility
+        {t("check_compat")}
       </button>
     </div>
   );

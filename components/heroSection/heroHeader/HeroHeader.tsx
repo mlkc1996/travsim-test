@@ -1,18 +1,27 @@
+"use client";
 import { Image } from "@/shared/UI/image/Image";
 import styles from "./../HeroSection.module.scss";
 
-export const HeroHeader = () => {
+export type HeroHeaderProps = {
+  title: string;
+  level: string;
+  rating: number;
+  ratingTextContent: string;
+};
+
+export const HeroHeader = ({
+  rating,
+  title,
+  level,
+  ratingTextContent,
+}: HeroHeaderProps) => {
   return (
     <header className={`flex flex-col gap-[16px]`}>
-      <h3 className="text-level-header-200 text-font-x-bold">
-        eSIM for the Saint Vincent & Grenadines
-      </h3>
+      <h3 className="text-level-header-200 text-font-x-bold">{title}</h3>
       <div className={`flex items-center gap-[19px] ${styles.reviews}`}>
-        <span className="text-level-normal-100 text-font-x-bold">
-          Excellent
-        </span>
+        <span className="text-level-normal-100 text-font-x-bold">{level}</span>
         <div className="flex gap-[2px]">
-          {Array(5)
+          {Array(rating)
             .fill(null)
             .map((_, index) => (
               <Image
@@ -25,9 +34,10 @@ export const HeroHeader = () => {
               />
             ))}
         </div>
-        <span className="text-level-normal-100 text-font-normal">
-          Based on <strong>1,764 Reviews</strong> on
-        </span>
+        <span
+          className="text-level-normal-100 text-font-normal"
+          dangerouslySetInnerHTML={{ __html: ratingTextContent }}
+        ></span>
         <Image
           width={87}
           height={22.5}

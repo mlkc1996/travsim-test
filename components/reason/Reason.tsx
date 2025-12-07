@@ -24,44 +24,15 @@ const visuals = [
   },
 ];
 
-const data = {
-  title: "Why Choose us for yor United States eSIM",
-  reasons: [
-    {
-      title: "Clear simple pricing",
-      paragraph:
-        "Our plans are fully prepaid with no roaming fees or hidden charges. No overages. Transparent pricing always.",
-    },
-    {
-      title: "Apps are easy to use",
-      paragraph:
-        "Our apps put you in the driving seat. Install your eSIM, check your data balance, manage plans, and contact support—all in just a few taps.",
-    },
-    {
-      title: "One eSIM, Multiple Trips lorem",
-      paragraph:
-        "Install our eSIM once and reuse it for future trips—just purchase a data package for your next destination from the app.",
-    },
-
-    {
-      title: "Compatibility",
-      paragraph:
-        "Our eSIM works with a wide range of iOS and Android eSIM devices that support eSIM. See list of compatible devices.",
-    },
-    {
-      title: "Fully customisable",
-      paragraph:
-        "You can customise your eSIM plan to suit your needs. Recharge or extend your plan anytime from our apps.",
-    },
-    {
-      title: "24/7 Support",
-      paragraph:
-        "You can get help with the app anytime. You can view FAQ sections, review guides or contact support.",
-    },
-  ],
+export type ReasonProps = {
+  title: string;
+  reasons: {
+    title: string;
+    paragraph: string;
+  }[];
 };
 
-export const Reason = ({ title = data.title, reasons = data.reasons }: any) => {
+export const Reason = ({ title, reasons }: ReasonProps) => {
   return (
     <SectionContainer className={`${styles.container} container-px-100`}>
       <h3 className="text-level-header text-font-x-bold">{title}</h3>
