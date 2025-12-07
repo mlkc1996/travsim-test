@@ -22,5 +22,8 @@
   "locales": { "eng": "English", "tc": "Traditional Chinese" },
   "read_more": "READ MORE",
   "regions": { "hk": "Hong Kong", "us": "United States" },
-  "sign_in_up": "Sign in | Sign up"
+  "sign_in_up": "Sign in | Sign up",
+  "error_header_text": "Oops! Something went wrong...",
+  "error_help_text": "Please try again later",
+  "error_code": "Error code"
 }

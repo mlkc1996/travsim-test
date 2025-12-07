@@ -13,6 +13,7 @@ import { Resources } from "@/components/resources/Resources";
 import { Testimonial } from "@/components/testimonial/Testimonial";
 import withLoading from "@/shared/hoc/withLoading";
 import withError from "@/shared/hoc/withError";
+import { ErrorComponent } from "@/components/error/Error";
 
 export const dynamic = "force-dynamic";
 

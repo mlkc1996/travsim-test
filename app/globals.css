@@ -258,6 +258,10 @@ i.icon {
   &.icon-hamburger-menu {
     background-image: url("/assets/icons/hamburger-menu.svg");
   }
+
+  &.icon-error {
+    background-image: url("/assets/icons/error.svg");
+  }
 }
 
 .cta {
