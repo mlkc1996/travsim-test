@@ -1,10 +1,30 @@
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export function proxy(request: NextRequest) {}
+export default function proxy(request: NextRequest) {
+  const response = createMiddleware(routing)(request);
 
-export default createMiddleware(routing);
+  if (response.redirected) {
+    return response;
+  }
+
+  const { pathname, search } = request.nextUrl;
+
+  const [, locale, regionCode, ...others] = pathname.split("/");
+
+  switch (regionCode?.toUpperCase()) {
+    case "HK":
+    case "US":
+      return response;
+  }
+
+  return NextResponse.redirect(
+    new URL(`/${locale}/HK/${others.join("/")}${search}`, request.url)
+  );
+}
+
+// export default createMiddleware(routing);
 
 export const config = {
   // Match all pathnames except for
