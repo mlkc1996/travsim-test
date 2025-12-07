@@ -4,15 +4,12 @@ import { Image } from "@/shared/UI/image/Image";
 import { useState } from "react";
 import styles from "./../HeroSection.module.scss";
 
-const data = {
-  flag_url: `${process.env.IMAGE_PATH}/us-flag.png`,
-  images: [`${process.env.IMAGE_PATH}/productLargeImg.jpg`, "", "", "", ""],
+export type PackageAlbumProps = {
+  flag_url: string;
+  images: string[];
 };
 
-export const PackageAlbum = ({
-  images = data.images,
-  flag_url = data.flag_url,
-}: any) => {
+export const PackageAlbum = ({ images, flag_url }: PackageAlbumProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const main = images[activeIndex];
 

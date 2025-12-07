@@ -106,6 +106,16 @@ const HardcodeData: any = {
             ctaText: "閱讀更多",
           },
         ],
+        albums: {
+          flag_url: `${process.env.IMAGE_PATH}/us-flag.png`,
+          images: [
+            `${process.env.IMAGE_PATH}/productLargeImg.jpg`,
+            "",
+            "",
+            "",
+            "",
+          ],
+        },
       },
       HK: {
         header: {
@@ -199,6 +209,10 @@ const HardcodeData: any = {
             ctaText: "閱讀更多",
           },
         ],
+        albums: {
+          flag_url: `${process.env.IMAGE_PATH}/hk-flag.png`,
+          images: [`${process.env.IMAGE_PATH}/hk-album.jpg`, "", "", "", ""],
+        },
       },
     },
     "en-US": {
@@ -294,6 +308,16 @@ const HardcodeData: any = {
             ctaText: "Read More",
           },
         ],
+        albums: {
+          flag_url: `${process.env.IMAGE_PATH}/us-flag.png`,
+          images: [
+            `${process.env.IMAGE_PATH}/productLargeImg.jpg`,
+            "",
+            "",
+            "",
+            "",
+          ],
+        },
       },
       HK: {
         header: {
@@ -387,6 +411,10 @@ const HardcodeData: any = {
             ctaText: "Read More",
           },
         ],
+        albums: {
+          flag_url: `${process.env.IMAGE_PATH}/hk-flag.png`,
+          images: [`${process.env.IMAGE_PATH}/hk-album.jpg`, "", "", "", ""],
+        },
       },
     },
   },

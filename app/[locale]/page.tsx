@@ -105,6 +105,10 @@ const HeroSectionData = {
       ctaText: "Read More",
     },
   ],
+  albums: {
+    flag_url: `${process.env.IMAGE_PATH}/us-flag.png`,
+    images: [`${process.env.IMAGE_PATH}/productLargeImg.jpg`, "", "", "", ""],
+  },
 };
 
 const BenefitsSectionData = {

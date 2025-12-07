@@ -4,13 +4,14 @@ import { HeroHeader, HeroHeaderProps } from "./heroHeader/HeroHeader";
 import { Packages, PackagesProps } from "./packages/Packages";
 import { Services, ServicesProps } from "./services/Services";
 import { Tabs, TabsProps } from "./tabs/Tabs";
-import { PackageAlbum } from "./packageAlbum/PackageAlbum";
+import { PackageAlbum, PackageAlbumProps } from "./packageAlbum/PackageAlbum";
 
 export type HeroSectionProps = {
   header: HeroHeaderProps;
   packages: PackagesProps;
   services: ServicesProps["services"];
   tabs: TabsProps["tabs"];
+  albums: PackageAlbumProps;
 };
 
 export const HeroSection = (props: HeroSectionProps) => {
@@ -20,7 +21,7 @@ export const HeroSection = (props: HeroSectionProps) => {
       orientation="row"
       className={`${styles.container} container-px-100`}
     >
-      <PackageAlbum />
+      <PackageAlbum {...props.albums} />
       <main className="flex flex-col gap-[56px]" data-container>
         <HeroHeader {...props.header} />
         <Packages {...props.packages} />
