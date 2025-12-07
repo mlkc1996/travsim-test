@@ -22,7 +22,7 @@ export default function proxy(request: NextRequest) {
   return NextResponse.redirect(
     new URL(
       `/${locale}/HK${others?.length ? `/${others?.join("/")}` : ""}${search}`,
-      request.url
+      request.nextUrl
     )
   );
 }
