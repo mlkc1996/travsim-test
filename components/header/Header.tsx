@@ -69,7 +69,7 @@ export const Header = () => {
           </button>
         )}
       </div>
-      <HeaderMobileMenu open={open} ref={inputRef} />
+      {isTablet && <HeaderMobileMenu open={open} ref={inputRef} />}
     </header>
   );
 };
