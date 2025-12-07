@@ -195,25 +195,42 @@ $bg-colors: (
 
   .accordion {
     --padding-y: 2rem;
+    --active-padding-x: 1.4rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
     &:first-child {
       border-radius: 0;
-      border-top-left-radius: var(--rounded);
-      border-top-right-radius: var(--rounded);
+      border-top-left-radius: var(--rounded-s);
+      border-top-right-radius: var(--rounded-s);
     }
 
     &:last-child {
       border-radius: 0;
-      border-bottom-left-radius: var(--rounded);
-      border-bottom-right-radius: var(--rounded);
+      border-bottom-left-radius: var(--rounded-s);
+      border-bottom-right-radius: var(--rounded-s);
     }
 
     .box {
       margin-top: unset;
       max-height: unset;
       height: 100%;
+      border-radius: var(--rounded-s);
+    }
+
+    .box.hidden {
+      overflow: hidden;
+      position: unset;
+      min-height: 0;
+      overflow: hidden;
+      height: 0;
+      transform: none;
+      padding: 0;
+    }
+
+    .box {
+      transform: none;
+      transition: height 0.2s ease, min-height 0.2 ease;
     }
   }
 
@@ -242,7 +259,7 @@ $bg-colors: (
 
   .accordion.active {
     .image {
-      height: 36rem;
+      height: max(36rem, 100%);
     }
   }
 
