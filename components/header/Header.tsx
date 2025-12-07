@@ -7,11 +7,14 @@ import { Image } from "@/shared/UI/image/Image";
 import { HeaderButtons } from "./headerButtons/HeaderButtons";
 import { Icon } from "@/shared/UI/icon/Icon";
 import { HeaderMobileMenu } from "./headerMobileMenu/HeaderMobileMenu";
+import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
 
 export const Header = () => {
   const headerRef = useRef<HTMLElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const [open, setOpen] = useState(false);
+
+  const isTablet = useMediaQuery("Tablet");
 
   useEffect(() => {
     const header = headerRef.current;
@@ -51,19 +54,22 @@ export const Header = () => {
           alt=""
           className={styles.logo}
         />
-        <SearchInput ref={inputRef} className={`shrink ${styles.search}`} />
-        <HeaderButtons />
-
-        <button
-          className={styles.hamburgerMenu}
-          onClick={() => {
-            setOpen((prev) => !prev);
-          }}
-        >
-          <Icon icon={open ? "x-close" : "hamburger-menu"} />
-        </button>
+        {!isTablet && (
+          <SearchInput ref={inputRef} className={`shrink ${styles.search}`} />
+        )}
+        {!isTablet && <HeaderButtons />}
+        {isTablet && (
+          <button
+            className={styles.hamburgerMenu}
+            onClick={() => {
+              setOpen((prev) => !prev);
+            }}
+          >
+            <Icon icon={open ? "x-close" : "hamburger-menu"} />
+          </button>
+        )}
       </div>
-      {open && <HeaderMobileMenu ref={inputRef} />}
+      {open && isTablet && <HeaderMobileMenu ref={inputRef} />}
     </header>
   );
 };

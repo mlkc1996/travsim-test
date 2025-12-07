@@ -42,7 +42,7 @@ $border-bottom: 1px solid #ebebeb;
   }
 
   @container (width <= 1024px) {
-    gap: 3.2rem;
+    gap: 2em;
   }
 
   @container (width <= 768px) {
@@ -58,15 +58,15 @@ $border-bottom: 1px solid #ebebeb;
 }
 
 .logo {
-  width: 204px;
-  height: 33px;
+  width: 20.4rem;
+  height: 3rem;
   flex-shrink: 0;
 
   @container (width <= 1024px) {
-    width: 160px;
+    // width: 16rem;
 
     img {
-      object-fit: cover;
+      object-fit: cover !important;
     }
   }
 }
@@ -123,6 +123,7 @@ $border-bottom: 1px solid #ebebeb;
 
 .hamburgerMenu {
   display: none;
+
   @container (width <= 768px) {
     display: inline;
   }
