@@ -17,7 +17,12 @@ export const HeaderButtons = () => {
         {/* <button className="text-level-normal-100 text-font-normal">
           Explore
         </button> */}
-        <button className="text-level-normal-100 text-font-normal">
+        <button
+          className="text-level-normal-100 text-font-normal"
+          style={{
+            width: "max-content",
+          }}
+        >
           {t("help")}
         </button>
         <LanguageSelectionDropdown />

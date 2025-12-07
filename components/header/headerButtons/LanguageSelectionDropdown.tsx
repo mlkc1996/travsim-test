@@ -58,7 +58,7 @@ export const LanguageSelectionDropdown = () => {
                 className="flex items-center gap-[8px] text-level-normal-100 text-font-normal"
                 onClick={() => onClick(value)}
               >
-                {t(label)}
+                {label}
               </button>
             </div>
           ))}

@@ -27,7 +27,12 @@ export const ExploreCountryDropdown = () => {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <button className="text-level-normal-100 text-font-normal">
+        <button
+          className="text-level-normal-100 text-font-normal"
+          style={{
+            width: "max-content",
+          }}
+        >
           {t("explore")}
         </button>
       </PopoverTrigger>

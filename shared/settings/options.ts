@@ -1,10 +1,10 @@
 export const LocaleOptions = [
   {
-    label: "locales.eng",
+    label: "English",
     value: "en-us",
   },
   {
-    label: "locales.tc",
+    label: "繁體中文",
     value: "zh-hk",
   },
 ];
