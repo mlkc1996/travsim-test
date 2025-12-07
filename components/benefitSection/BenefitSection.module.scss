@@ -1,9 +1,13 @@
+@use "@/shared/scss/breakpoint" as *;
+
 @use "sass:map";
 
 .container {
   padding-top: 7rem;
   padding-bottom: 7rem;
   align-items: flex-start;
+
+  @include adjustMobileYPadding();
 }
 
 .button {
@@ -22,19 +26,10 @@
 
 .accordions {
   display: flex;
-  border-radius: var(--rounded);
   overflow: hidden;
   gap: 2px;
 
-  @container (width <= 1300px) {
-  }
-
-  @container (width <= 1024px) {
-  }
-
-  @container (width <= 768px) {
-    flex-direction: column;
-  }
+  width: 100%;
 }
 
 $bg-colors: (
@@ -53,46 +48,49 @@ $bg-colors: (
   }
 }
 
+.mobile.iconsContainer {
+  display: none;
+}
+
 .accordion {
+  --collapsed-icon-wrapper-size: 5.2rem;
+  --ative-icon-wrapper-size: 6.4rem;
+  --icon-size: 3.2rem;
+  --padding-y: 4rem;
+  --active-padding-x: 3.4rem;
+  --collasped-padding-x: 2.4rem;
+
+  &:first-child {
+    border-top-left-radius: var(--rounded);
+    border-bottom-left-radius: var(--rounded);
+  }
+
+  &:last-child {
+    border-top-right-radius: var(--rounded);
+    border-bottom-right-radius: var(--rounded);
+  }
+
   display: flex;
   cursor: pointer;
   position: relative;
-
-  padding: 4rem 2.4rem;
-
-  &.active {
-    padding: 4rem 3.4rem;
-    cursor: default;
-    gap: 3.4rem;
-
-    .icon-wrapper {
-      width: 6.4rem;
-      height: 6.4rem;
-    }
-
-    .left-side {
-      min-width: 20rem;
-    }
-
-    .image {
-      width: 36rem;
-      height: 45rem;
-    }
-  }
+  overflow: hidden;
+  min-width: min-content;
+  padding: var(--padding-y) var(--collasped-padding-x);
 
   .icon-wrapper {
-    width: 5.2rem;
-    height: 5.2rem;
+    width: var(--collapsed-icon-wrapper-size);
+    height: var(--collapsed-icon-wrapper-size);
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #fff;
     border-radius: 50%;
+    flex-shrink: 0;
   }
 
   i:global(.icon) {
-    width: 3.2rem;
-    height: 3.2rem;
+    width: --icon-size;
+    height: --icon-size;
   }
 
   .left-side {
@@ -100,6 +98,8 @@ $bg-colors: (
     flex-direction: column;
     gap: 4rem;
     height: 100%;
+    min-width: var(--collapsed-icon-wrapper-size);
+    width: 100%;
   }
 
   .box {
@@ -107,7 +107,7 @@ $bg-colors: (
     padding: 4rem;
     display: flex;
     gap: 3.2rem;
-    width: 36.5rem;
+    // width: 36.5rem;
     margin-top: auto;
     max-width: 40rem;
     max-height: 40rem;
@@ -123,6 +123,24 @@ $bg-colors: (
     transform: translateX(-50%);
     z-index: -1;
   }
+
+  &.active {
+    padding: var(--padding-y) var(--active-padding-x);
+    cursor: default;
+    gap: 3.4rem;
+    flex: 1;
+
+    .icon-wrapper {
+      width: var(--ative-icon-wrapper-size);
+      height: var(--ative-icon-wrapper-size);
+    }
+
+    .image {
+      width: 36rem;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 
 .image {
@@ -135,5 +153,104 @@ $bg-colors: (
   img {
     object-fit: cover;
     object-position: 84%;
+  }
+}
+
+@media screen and (width <= 1300px) {
+  .accordion {
+    --collapsed-icon-wrapper-size: 4.2rem;
+    --icon-size: 2.8rem;
+    --ative-icon-wrapper-size: 5.2rem;
+    --active-padding-x: 2.4rem;
+    --padding-y: 2.8rem;
+    --collasped-padding-x: 1.8rem;
+  }
+
+  .accordion .box {
+    padding: 2.4rem;
+    gap: 2.4rem;
+  }
+
+  .accordion.active {
+    gap: 2.4rem;
+  }
+}
+
+@media screen and (width <= 1024px) {
+  .accordion {
+    --collasped-padding-x: 1.4rem;
+  }
+
+  .accordion .box {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    gap: 2.4rem;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .accordions {
+    flex-direction: column;
+  }
+
+  .accordion {
+    --padding-y: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    &:first-child {
+      border-radius: 0;
+      border-top-left-radius: var(--rounded);
+      border-top-right-radius: var(--rounded);
+    }
+
+    &:last-child {
+      border-radius: 0;
+      border-bottom-left-radius: var(--rounded);
+      border-bottom-right-radius: var(--rounded);
+    }
+
+    .box {
+      margin-top: unset;
+      max-height: unset;
+      height: 100%;
+    }
+  }
+
+  .iconsContainer {
+    flex-direction: row;
+    &:not(.mobile) {
+      display: none;
+    }
+
+    &.mobile {
+      display: flex;
+      grid-column: span 2;
+    }
+  }
+
+  .image {
+    height: 0;
+    border-radius: var(--rounded-s);
+    transition: height 0.2s ease;
+
+    img {
+      object-fit: cover;
+      object-position: 84%;
+    }
+  }
+
+  .accordion.active {
+    .image {
+      height: 36rem;
+    }
+  }
+
+  .container ul {
+    gap: 1.6rem;
+
+    button {
+      padding: 6px 8px;
+    }
   }
 }

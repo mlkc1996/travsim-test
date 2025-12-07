@@ -116,6 +116,38 @@ const data = {
   ],
 };
 
+const AppIconsContainer = ({ apps, isActive, className }: any) => {
+  return (
+    <div
+      className={`flex flex-col gap-[8px] mt-auto ${styles.iconsContainer} ${className}`}
+      style={{ marginTop: "auto" }}
+    >
+      {apps.map(({ iconId, iconUrl, text }: any, index: number) => {
+        if (iconUrl || text) {
+          return (
+            <div
+              key={`${iconId}-${index}`}
+              className="flex items-center gap-[10px]"
+            >
+              <div className={`${styles["icon-wrapper"]}`}>
+                <Icon icon={iconUrl} />
+              </div>
+
+              {isActive && (
+                <span className="text-level-normal-100 text-font-normal">
+                  {text}
+                </span>
+              )}
+            </div>
+          );
+        }
+
+        return null;
+      })}
+    </div>
+  );
+};
+
 const Accordion = ({
   isActive,
   onClick,
@@ -137,34 +169,14 @@ const Accordion = ({
           title={title}
           description={description}
         />
-        <div
-          className="flex flex-col gap-[8px] mt-auto "
-          style={{ marginTop: "auto" }}
-        >
-          {apps.map(({ iconId, iconUrl, text }: any, index: number) => {
-            if (iconUrl || text) {
-              return (
-                <div
-                  key={`${iconId}-${index}`}
-                  className="flex items-center gap-[10px]"
-                >
-                  <div className={`${styles["icon-wrapper"]}`}>
-                    <Icon icon={iconUrl} />
-                  </div>
-                  {isActive && (
-                    <span className="text-level-normal-100 text-font-normal">
-                      {text}
-                    </span>
-                  )}
-                </div>
-              );
-            }
-
-            return null;
-          })}
-        </div>
+        <AppIconsContainer apps={apps} isActive={isActive} />
       </div>
-      {<Image className={styles.image} src={image} fill alt={`${title}`} />}
+      <Image className={styles.image} src={image} fill alt={`${title}`} />
+      <AppIconsContainer
+        apps={apps}
+        isActive={isActive}
+        className={styles.mobile}
+      />
     </div>
   );
 };
@@ -180,7 +192,7 @@ export const BenefitsSection = ({
       <h3 className="text-level-header text-font-x-bold w-full text-left">
         {title}
       </h3>
-      <ul className="self-start flex gap-[2.4rem] flex-wrap ">
+      <ul className="self-start flex gap-[2.4rem] flex-wrap">
         {accordions.map(({ title }: any, index: number) => {
           return (
             <li key={index}>
