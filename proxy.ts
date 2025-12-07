@@ -20,7 +20,10 @@ export default function proxy(request: NextRequest) {
   }
 
   return NextResponse.redirect(
-    new URL(`/${locale}/HK/${others.join("/")}${search}`, request.url)
+    new URL(
+      `/${locale}/HK${others?.length ? `/${others?.join("/")}` : ""}${search}`,
+      request.url
+    )
   );
 }
 
