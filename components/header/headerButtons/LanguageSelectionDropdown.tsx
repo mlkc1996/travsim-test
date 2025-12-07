@@ -7,21 +7,13 @@ import {
   PopoverTrigger,
   PopoverArrow,
 } from "@radix-ui/react-popover";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-
-const locales = [
-  {
-    label: "English",
-    value: "en-us",
-  },
-  {
-    label: "Tradition Chinese",
-    value: "zh-hk",
-  },
-];
+import { LocaleOptions } from "@/shared/settings/options";
 
 export const LanguageSelectionDropdown = () => {
   const router = useRouter();
+  const t = useTranslations();
 
   const onClick = (newLocale: string) => {
     const { pathname, search } = window.location;
@@ -53,20 +45,20 @@ export const LanguageSelectionDropdown = () => {
             background: "#fff",
           }}
         >
-          {locales.map(({ label, value }, index) => (
+          {LocaleOptions.map(({ label, value }, index) => (
             <div
               key={value}
               style={{
                 padding: "4px 0",
                 borderBottom:
-                  index + 1 == locales.length ? "" : "1px solid #d9d9d9",
+                  index + 1 == LocaleOptions.length ? "" : "1px solid #d9d9d9",
               }}
             >
               <button
                 className="flex items-center gap-[8px] text-level-normal-100 text-font-normal"
                 onClick={() => onClick(value)}
               >
-                {label}
+                {t(label)}
               </button>
             </div>
           ))}

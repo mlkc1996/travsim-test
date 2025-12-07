@@ -8,6 +8,7 @@ import { HeaderButtons } from "./headerButtons/HeaderButtons";
 import { Icon } from "@/shared/UI/icon/Icon";
 import { HeaderMobileMenu } from "./headerMobileMenu/HeaderMobileMenu";
 import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
+import { useTranslations } from "next-intl";
 
 export const Header = () => {
   const headerRef = useRef<HTMLElement>(null);
@@ -15,6 +16,8 @@ export const Header = () => {
   const [open, setOpen] = useState(false);
 
   const isTablet = useMediaQuery("Tablet");
+
+  const t = useTranslations();
 
   useEffect(() => {
     const header = headerRef.current;
@@ -55,7 +58,11 @@ export const Header = () => {
           className={styles.logo}
         />
         {!isTablet && (
-          <SearchInput ref={inputRef} className={`shrink ${styles.search}`} />
+          <SearchInput
+            ref={inputRef}
+            className={`shrink ${styles.search}`}
+            placeholder={t("Header.seachText")}
+          />
         )}
         {!isTablet && <HeaderButtons />}
         {isTablet && (

@@ -8,35 +8,28 @@ import {
 } from "@radix-ui/react-popover";
 import { Image } from "@/shared/UI/image/Image";
 import { useRouter } from "next/navigation";
-
-const locales = [
-  {
-    label: "USA",
-    value: "US",
-  },
-  {
-    label: "Hong Kong",
-    value: "HK",
-  },
-];
+import { RegionOptions } from "@/shared/settings/options";
+import { useTranslations } from "next-intl";
 
 export const ExploreCountryDropdown = () => {
   const router = useRouter();
 
-  const onClick = (newLocale: string) => {
+  const onClick = (newRegion: string) => {
     const { pathname, search } = window.location;
-    const [, locale, ...others] = pathname.split("/");
-    const newPathname = `/${newLocale}${
+    const [, locale, region, ...others] = pathname.split("/");
+    const newPathname = `/${locale}/${newRegion}${
       others.length ? `/${others.join("/")}` : ""
     }${search}`;
     router.push(newPathname);
   };
 
+  const t = useTranslations();
+
   return (
     <Popover>
       <PopoverTrigger asChild>
         <button className="text-level-normal-100 text-font-normal">
-          Explore
+          {t("explore")}
         </button>
       </PopoverTrigger>
       <PopoverContent sideOffset={0}>
@@ -53,13 +46,13 @@ export const ExploreCountryDropdown = () => {
             background: "#fff",
           }}
         >
-          {locales.map(({ label, value }, index) => (
+          {RegionOptions.map(({ label, value }, index) => (
             <div
               key={value}
               style={{
                 padding: "4px 0",
                 borderBottom:
-                  index + 1 == locales.length ? "" : "1px solid #d9d9d9",
+                  index + 1 == RegionOptions.length ? "" : "1px solid #d9d9d9",
               }}
             >
               <button
@@ -74,7 +67,7 @@ export const ExploreCountryDropdown = () => {
                   width={16}
                   height={16}
                 />
-                {label}
+                {t(label)}
               </button>
             </div>
           ))}

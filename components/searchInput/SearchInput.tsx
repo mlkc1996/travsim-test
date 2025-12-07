@@ -2,12 +2,19 @@
 
 import { Icon } from "@/shared/UI/icon/Icon";
 import styles from "./SearchInput.module.scss";
+import { RefObject } from "react";
+
+export type SearchInputProps = {
+  placeholder?: string;
+  className?: string;
+  ref?: RefObject<HTMLInputElement | null>;
+};
 
 export const SearchInput = ({
-  placeholder = "Where to next?",
+  placeholder = "",
   className = "",
   ref,
-}: any) => {
+}: SearchInputProps) => {
   return (
     <div className={`${styles.inputContainer} ${className}`}>
       <input
