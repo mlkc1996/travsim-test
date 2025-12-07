@@ -1,3 +1,5 @@
+import axios, { AxiosError } from "axios";
+
 export type TemplateType =
   | "HeroSection"
   | "BenefitsSection"
@@ -882,14 +884,38 @@ export const GetContent = async (
   locale: string,
   regionCode: string
 ) => {
+  const [first, second] = locale.split("-");
+  const translated = `${first.toLowerCase()}-${second.toUpperCase()}`;
+
   switch (template) {
     case "ReasonsSection":
     case "TestimonialsSection":
     case "HeroSection":
     case "BestValue":
-      return HardcodeData[template][locale][regionCode];
+      return HardcodeData[template][translated][regionCode.toUpperCase()];
     case "AlsoLikeSection":
     case "ResourcesSection":
-      return HardcodeData[template][locale];
+      return HardcodeData[template][translated];
+  }
+
+  try {
+    const response = await axios.get(
+      `${process.env.BASE_URL}/${
+        process.env.API_KEY
+      }/content/${template}/${regionCode.toUpperCase()}/${translated}`
+    );
+    //"https://content.travsim.fr/api/api_3dae3af703e1ecf3dbf5209fcae1e85cd4b23d6956d25122/content/BenefitsSection/US/en-US"
+
+    return response.data;
+  } catch (e) {
+    if (AxiosError.isError(e)) {
+      const { response } = e as AxiosError;
+      console.log(`Failed to get ${response?.config.url}`);
+    }
+
+    return {
+      success: false,
+      message: "",
+    };
   }
 };

@@ -542,7 +542,11 @@ const ResourcesData = {
   ],
 };
 
-export default function Home() {
+type Props = {
+  params: Promise<{ locale: string; regionCode: string }>;
+};
+
+export default async function Home({}: Props) {
   return (
     <>
       <HeroSection {...HeroSectionData} />
