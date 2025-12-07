@@ -25,5 +25,7 @@
   "sign_in_up": "Sign in | Sign up",
   "error_header_text": "Oops! Something went wrong...",
   "error_help_text": "Please try again later",
-  "error_code": "Error code"
+  "error_code": "Error code",
+  "return_home": "Return Home",
+  "error_404": "We cannot find the page..."
 }
