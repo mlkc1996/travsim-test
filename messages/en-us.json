@@ -1,3 +1,25 @@
 {
-  "text": "Hello world"
+  "best_value": "Best value",
+  "bestValueText": "20GB for 30 days for $24,99",
+  "check_compat": "Check Device Compatibility",
+  "days": "Days",
+  "explore": "Explore",
+  "GetApp": {
+    "description": "Download our app and get 500MB free data to try in your hometown",
+    "title": "Wanna try it first? Get the App"
+  },
+  "Header": { "seachText": "Where to next?" },
+  "help": "Help",
+  "HeroSection": {
+    "header": {
+      "level": "Excellent",
+      "ratingTextContent": "Based on <strong>1,764 Reviews</strong> on",
+      "title": "eSIM for {0}"
+    },
+    "packages": { "title": "Choose your {0} eSIM package" }
+  },
+  "language": "Language",
+  "locales": { "eng": "English", "tc": "Traditional Chinese" },
+  "read_more": "READ MORE",
+  "regions": { "hk": "Hong Kong", "us": "United States" }
 }

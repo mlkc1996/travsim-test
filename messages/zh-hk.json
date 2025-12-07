@@ -1,1 +1,25 @@
-{}
+{
+  "best_value": "最佳價值",
+  "bestValueText": "30天內20GB，價格為$24.99",
+  "check_compat": "檢查設備兼容性",
+  "days": "天",
+  "explore": "探索",
+  "GetApp": {
+    "description": "下載我們的應用程式，並獲得500MB免費數據以在您家鄉試用",
+    "title": "想先試試嗎？下載應用程式"
+  },
+  "Header": { "seachText": "下一步去哪裡？" },
+  "help": "幫助",
+  "HeroSection": {
+    "header": {
+      "level": "優秀",
+      "ratingTextContent": "根據<strong>1,764條評價</strong>",
+      "title": "{0} 的 eSIM"
+    },
+    "packages": { "title": "選擇你的 {0} eSIM 套餐" }
+  },
+  "language": "語言",
+  "locales": { "eng": "英文", "tc": "繁體中文" },
+  "read_more": "阅读更多",
+  "regions": { "hk": "香港", "us": "美國" }
+}
