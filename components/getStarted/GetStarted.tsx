@@ -29,7 +29,7 @@ export const GetStarted = ({ title, subtitle, steps }: GetStartedProps) => {
         <p className="text-level-normal-200 text-font-normal-100">{subtitle}</p>
       )}
       <div className={styles.instructions}>
-        {steps.map(({ title, paragraph }: any, index: number) => {
+        {steps?.map?.(({ title, paragraph }: any, index: number) => {
           const { icon, image } = visuals[index];
           return (
             <Box

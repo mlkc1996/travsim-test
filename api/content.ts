@@ -892,10 +892,13 @@ export const GetContent = async (
     case "TestimonialsSection":
     case "HeroSection":
     case "BestValue":
-      return HardcodeData[template][translated][regionCode.toUpperCase()];
+      return {
+        success: true,
+        data: HardcodeData[template][translated][regionCode.toUpperCase()],
+      };
     case "AlsoLikeSection":
     case "ResourcesSection":
-      return HardcodeData[template][translated];
+      return { success: true, data: HardcodeData[template][translated] };
   }
 
   try {
@@ -906,16 +909,18 @@ export const GetContent = async (
     );
     //"https://content.travsim.fr/api/api_3dae3af703e1ecf3dbf5209fcae1e85cd4b23d6956d25122/content/BenefitsSection/US/en-US"
 
-    return response.data;
+    return { success: true, data: response.data };
   } catch (e) {
     if (AxiosError.isError(e)) {
       const { response } = e as AxiosError;
       console.log(`Failed to get ${response?.config.url}`);
+      console.log(`Response?.data: `, response?.data);
+
+      throw new Error("err_api_error");
     }
 
-    return {
-      success: false,
-      message: "",
-    };
+    console.log(`Unexpected error`, e);
+
+    throw new Error("err_unexpected_error");
   }
 };

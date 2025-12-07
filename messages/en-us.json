@@ -21,5 +21,6 @@
   "language": "Language",
   "locales": { "eng": "English", "tc": "Traditional Chinese" },
   "read_more": "READ MORE",
-  "regions": { "hk": "Hong Kong", "us": "United States" }
+  "regions": { "hk": "Hong Kong", "us": "United States" },
+  "sign_in_up": "Sign in | Sign up"
 }
