@@ -15,7 +15,7 @@ export default function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
 
   const [, locale, regionCode, ...others] = pathname.split("/");
-  console.log("proxy 3", `locale:${locale} regionCode:${regionCode}}`);
+  console.log("proxy 3", `locale:${locale} regionCode:${regionCode}`);
 
   switch (regionCode?.toUpperCase()) {
     case "HK":
@@ -23,8 +23,10 @@ export default function proxy(request: NextRequest) {
       return response;
   }
   const newUrl = new URL(
-    `/${locale}/HK${others?.length ? `/${others?.join("/")}` : ""}${search}`,
-    request.nextUrl
+    `/${locale || routing.defaultLocale}/HK${
+      others?.length ? `/${others?.join("/")}` : ""
+    }${search}`,
+    request.url
   );
 
   console.log("proxy 4", newUrl.toString());
@@ -38,5 +40,5 @@ export const config = {
   // Match all pathnames except for
   // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
   // - … the ones containing a dot (e.g. `favicon.ico`)
-  matcher: "/((?!api|trpc|_next|_vercel|.*\\..*).*)",
+  matcher: "/((?!api|trpc|_next|_vercel|assets|.*\\..*).*)",
 };
