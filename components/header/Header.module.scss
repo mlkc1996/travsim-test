@@ -1,6 +1,4 @@
-:root {
-  --header-height: 80px;
-}
+@use "@/shared/scss/breakpoint" as *;
 
 $border-bottom: 1px solid #ebebeb;
 
@@ -22,6 +20,8 @@ $border-bottom: 1px solid #ebebeb;
   &.open {
     border-bottom: none;
   }
+
+  --header-height: 80px;
 }
 
 .container {
@@ -124,8 +124,9 @@ $border-bottom: 1px solid #ebebeb;
 .hamburgerMenu {
   display: none;
 
-  @container (width <= 768px) {
+  @media screen and (width <= $breakpoint-tablet) {
     display: inline;
+    margin-left: auto;
   }
 }
 
@@ -139,23 +140,89 @@ $border-bottom: 1px solid #ebebeb;
 }
 
 .HeaderMobileMenu {
-  @container (width > 768px) {
-    display: none;
-  }
+  position: absolute;
+  top: 64px;
+  z-index: 10;
+  background-color: #fff;
 
   width: 100%;
-  padding: 1.6rem;
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+
+  transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.4s ease;
+
+  :global(.cta) {
+    width: 100%;
+    max-width: unset;
+  }
 
   .search {
     max-width: unset;
     width: 100%;
   }
+}
 
-  nav {
-    display: grid;
-    grid-template-columns: subgrid;
-    grid-row: span 5;
+.HeaderMobileMenu:not(.open) {
+  max-height: 0;
+  overflow: 0;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.HeaderMobileMenu.open {
+  max-height: 100vh;
+  height: 100vh;
+  padding: 1.6rem;
+  pointer-events: auto;
+
+  .nav {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 1.6rem 0;
+    width: 100%;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &.borderBottom {
+      border-bottom: 1px solid #d9d9d9;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.selection {
+  display: flex;
+  flex-direction: column;
+  // padding: 8px;
+  background: #f8fafd;
+  margin-top: 0;
+
+  li {
+    padding: 4px;
+    margin: 0 4px;
+    border-bottom: 1px solid #fff;
+    overflow: hidden;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, margin 0.4s ease;
+
+  &.open {
+    max-height: 100px;
+    margin-top: 8px;
   }
 }

@@ -14,6 +14,7 @@
   --bg-secondary: #f8fafd;
   --color-red: #b02235;
 
+  --icon-size-s: 1.6rem;
   --icon-size-md: 2.4rem;
   --icon-size-lg: 3.6rem;
   --icon-size-xl: 4.8rem;
@@ -122,17 +123,22 @@ i.icon {
     max-height: 100%;
   }
 
-  .icon-md {
+  &.icon-s {
+    width: var(--icon-size-s);
+    height: var(--icon-size-s);
+  }
+
+  &.icon-md {
     width: var(--icon-size-md);
     height: var(--icon-size-md);
   }
 
-  .icon-lg {
+  &.icon-lg {
     width: var(--icon-size-lg);
     height: var(--icon-size-lg);
   }
 
-  .icon-xl {
+  &.icon-xl {
     width: var(--icon-size-xl);
     height: var(--icon-size-xl);
   }
