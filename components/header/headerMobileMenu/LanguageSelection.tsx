@@ -4,21 +4,13 @@ import { Icon } from "@/shared/UI/icon/Icon";
 import { useRouter } from "next/navigation";
 import { Activity, useState } from "react";
 import styles from "./../Header.module.scss";
-
-const locales = [
-  {
-    label: "English",
-    value: "en-us",
-  },
-  {
-    label: "Tradition Chinese",
-    value: "zh-hk",
-  },
-];
+import { LocaleOptions } from "@/shared/settings/options";
+import { useTranslations } from "next-intl";
 
 export const LanguageSelection = () => {
   const [open, setOpen] = useState(false);
   const router = useRouter();
+  const t = useTranslations();
 
   const onClick = (newLocale: string) => {
     const { pathname, search } = window.location;
@@ -34,7 +26,9 @@ export const LanguageSelection = () => {
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-[8px]">
           <Icon icon="translate-01" />
-          <span className="text-normal-300 text-font-medium">Language</span>
+          <span className="text-normal-300 text-font-medium">
+            {t("language")}
+          </span>
         </div>
         <button
           className="text-normal-300 text-font-medium"
@@ -50,7 +44,7 @@ export const LanguageSelection = () => {
       </div>
 
       <ul className={`${styles.selection} ${open ? styles.open : ""}`}>
-        {locales.map(({ label, value }) => {
+        {LocaleOptions.map(({ label, value }) => {
           return (
             <li key={value}>
               <button

@@ -5,26 +5,18 @@ import { useRouter } from "next/navigation";
 import { Activity, useState } from "react";
 import styles from "./../Header.module.scss";
 import { Image } from "@/shared/UI/image/Image";
-
-const locales = [
-  {
-    label: "USA",
-    value: "US",
-  },
-  {
-    label: "Hong Kong",
-    value: "HK",
-  },
-];
+import { useTranslations } from "next-intl";
+import { RegionOptions } from "@/shared/settings/options";
 
 export const ExploreCountry = () => {
   const [open, setOpen] = useState(false);
   const router = useRouter();
+  const t = useTranslations();
 
-  const onClick = (newLocale: string) => {
+  const onClick = (newRegion: string) => {
     const { pathname, search } = window.location;
-    const [, locale, ...others] = pathname.split("/");
-    const newPathname = `/${newLocale}${
+    const [, locale, region, ...others] = pathname.split("/");
+    const newPathname = `/${locale}/${newRegion}${
       others.length ? `/${others.join("/")}` : ""
     }${search}`;
     router.push(newPathname);
@@ -34,7 +26,9 @@ export const ExploreCountry = () => {
     <div className="flex flex-col w-full">
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-[8px]">
-          <span className="text-normal-300 text-font-medium">Explore</span>
+          <span className="text-normal-300 text-font-medium">
+            {t("explore")}
+          </span>
         </div>
         <button
           className="text-normal-300 text-font-medium"
@@ -50,7 +44,7 @@ export const ExploreCountry = () => {
       </div>
 
       <ul className={`${styles.selection} ${open ? styles.open : ""}`}>
-        {locales.map(({ label, value }) => (
+        {RegionOptions.map(({ label, value }) => (
           <li key={value}>
             <button
               className="flex items-center gap-[8px] text-level-normal-100 text-font-normal"
@@ -64,7 +58,7 @@ export const ExploreCountry = () => {
                 width={16}
                 height={16}
               />
-              {label}
+              {t(label)}
             </button>
           </li>
         ))}

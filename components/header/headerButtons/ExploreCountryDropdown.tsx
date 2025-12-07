@@ -13,6 +13,7 @@ import { useTranslations } from "next-intl";
 
 export const ExploreCountryDropdown = () => {
   const router = useRouter();
+  const t = useTranslations();
 
   const onClick = (newRegion: string) => {
     const { pathname, search } = window.location;
@@ -22,8 +23,6 @@ export const ExploreCountryDropdown = () => {
     }${search}`;
     router.push(newPathname);
   };
-
-  const t = useTranslations();
 
   return (
     <Popover>
