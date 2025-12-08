@@ -36,7 +36,7 @@ html {
   }
 
   @media screen and (width <= 425px) {
-    font-size: 40%;
+    font-size: 45%;
   }
 }
 

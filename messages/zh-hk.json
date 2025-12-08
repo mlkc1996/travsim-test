@@ -20,7 +20,7 @@
   },
   "language": "語言",
   "locales": { "eng": "英文", "tc": "繁體中文" },
-  "read_more": "阅读更多",
+  "read_more": "閱讀更多",
   "regions": { "hk": "香港", "us": "美國" },
   "sign_in_up": "登入 | 註冊",
   "error_header_text": "哎呀！出了點問題...",

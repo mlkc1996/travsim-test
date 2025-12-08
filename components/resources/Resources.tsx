@@ -1,7 +1,10 @@
+"use client";
+
 import { SectionContainer } from "@/shared/UI/sectionContainer/SectionContainer";
 import { Image } from "@/shared/UI/image/Image";
 import Link from "next/link";
 import styles from "./Resources.module.scss";
+import { useTranslations } from "next-intl";
 
 export type ResourcesProps = {
   title: string;
@@ -9,6 +12,7 @@ export type ResourcesProps = {
 };
 
 export const Resources = ({ title, resources }: ResourcesProps) => {
+  const t = useTranslations();
   return (
     <SectionContainer className={`${styles.container} container-px-200`}>
       <h3 className="text-level-header text-font-x-bold text-left w-full">
@@ -35,7 +39,7 @@ export const Resources = ({ title, resources }: ResourcesProps) => {
                     className="text-level-normal-100 text-font-normal"
                     href={link ?? ""}
                   >
-                    READ MORE
+                    {t("read_more")}
                   </Link>
                 </div>
               </div>
