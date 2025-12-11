@@ -8,7 +8,7 @@
     "description": "下載我們的應用程式，並獲得500MB免費數據以在您家鄉試用",
     "title": "想先試試嗎？下載應用程式"
   },
-  "Header": { "seachText": "下一步去哪裡？" },
+  "Header": { "seachText": "下一步去哪裡？", "currency": " 貨幣" },
   "help": "幫助",
   "HeroSection": {
     "header": {

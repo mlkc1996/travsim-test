@@ -8,7 +8,11 @@ import { Image } from "@/shared/UI/image/Image";
 import { useTranslations } from "next-intl";
 import { RegionOptions } from "@/shared/settings/options";
 
-export const ExploreCountry = () => {
+export type ExploreCountryProps = {
+  onNavigate: () => void;
+};
+
+export const ExploreCountry = ({ onNavigate }: ExploreCountryProps) => {
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const t = useTranslations();
@@ -20,25 +24,27 @@ export const ExploreCountry = () => {
       others.length ? `/${others.join("/")}` : ""
     }${search}`;
     router.push(newPathname);
+
+    onNavigate?.();
   };
 
   return (
-    <div className="flex flex-col w-full">
+    <div
+      className="flex flex-col w-full cursor-pointer"
+      onClick={() => setOpen((prev) => !prev)}
+    >
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-[8px]">
-          <span className="text-normal-300 text-font-medium">
+          <span className="text-level-normal-300 text-font-medium">
             {t("explore")}
           </span>
         </div>
-        <button
-          className="text-normal-300 text-font-medium"
-          onClick={() => setOpen((prev) => !prev)}
-        >
+        <button className="text-level-normal-300 text-font-medium">
           <Activity mode={open ? "visible" : "hidden"}>
-            <Icon icon={"minus"} className="icon-s" />
+            <Icon icon={"minus"} className="icon-md" />
           </Activity>
           <Activity mode={open ? "hidden" : "visible"}>
-            <Icon icon={"plus"} className="icon-s" />
+            <Icon icon={"plus"} className="icon-md" />
           </Activity>
         </button>
       </div>
@@ -47,8 +53,11 @@ export const ExploreCountry = () => {
         {RegionOptions.map(({ label, value }) => (
           <li key={value}>
             <button
-              className="flex items-center gap-[8px] text-level-normal-100 text-font-normal"
-              onClick={() => onClick(value)}
+              className="flex items-center gap-[8px] text-level-normal-300 text-font-normal"
+              onClick={(e) => {
+                e.stopPropagation();
+                onClick(value);
+              }}
             >
               <Image
                 src={`${

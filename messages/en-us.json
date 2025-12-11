@@ -8,7 +8,7 @@
     "description": "Download our app and get 500MB free data to try in your hometown",
     "title": "Wanna try it first? Get the App"
   },
-  "Header": { "seachText": "Where to next?" },
+  "Header": { "seachText": "Where to next?", "currency": "Currency" },
   "help": "Help",
   "HeroSection": {
     "header": {

@@ -4,27 +4,40 @@ import { SearchInput } from "@/components/searchInput/SearchInput";
 import styles from "./../Header.module.scss";
 import { LoginButton } from "../login/LoginButton";
 import { Icon } from "@/shared/UI/icon/Icon";
-import { useState } from "react";
 import { LanguageSelection } from "./LanguageSelection";
 import { ExploreCountry } from "./ExploreCountry";
+import { useTranslations } from "next-intl";
 
-export const HeaderMobileMenu = ({ ref, open }: any) => {
+export const HeaderMobileMenu = ({ ref, open, setOpen }: any) => {
+  const t = useTranslations();
+
+  const onNavigate = () => {
+    setOpen?.(false);
+  };
+
   return (
     <ul className={`${styles.HeaderMobileMenu} ${open ? styles.open : ""}`}>
       <li className={`${styles["nav"]} ${styles["borderBottom"]}`}>
-        <ExploreCountry />
+        <ExploreCountry onNavigate={onNavigate} />
       </li>
       <li className={`${styles["nav"]} ${styles["borderBottom"]}`}>
-        <span className="text-normal-300 text-font-medium">Help</span>
+        <span className="text-level-normal-300 text-font-medium">Help</span>
       </li>
       <li className={`${styles["nav"]} ${styles["borderBottom"]}`}>
-        <LanguageSelection />
+        <LanguageSelection onNavigate={onNavigate} />
       </li>
       <li className={`${styles["nav"]} ${styles["borderBottom"]}`}>
         <Icon icon="currency-dollar-circle" />
+        <span className="text-level-normal-300 text-font-medium">
+          {t("Header.currency")}
+        </span>
       </li>
       <li className={`${styles["nav"]}`}>
-        <SearchInput ref={ref} className={styles.search} />
+        <SearchInput
+          ref={ref}
+          className={styles.search}
+          placeholder={t("Header.seachText")}
+        />
       </li>
       <li className={`${styles["nav"]}`}>
         <LoginButton />

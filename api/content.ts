@@ -883,7 +883,7 @@ export const GetContent = async (
   template: TemplateType,
   locale: string,
   regionCode: string
-) => {
+): Promise<{ success: boolean; data?: any }> => {
   const [first, second] = locale.split("-");
   const translated = `${first.toLowerCase()}-${second.toUpperCase()}`;
 
@@ -910,8 +910,8 @@ export const GetContent = async (
     //"https://content.travsim.fr/api/api_3dae3af703e1ecf3dbf5209fcae1e85cd4b23d6956d25122/content/BenefitsSection/US/en-US"
 
     return { success: true, data: response.data };
-  } catch (e) {
-    if (AxiosError.isError(e)) {
+  } catch (e: any) {
+    if ("response" in e) {
       const { response } = e as AxiosError;
       console.log(`Failed to get ${response?.config.url}`);
       console.log(`Response?.data: `, response?.data);

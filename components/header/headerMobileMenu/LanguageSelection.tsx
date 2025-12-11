@@ -7,7 +7,11 @@ import styles from "./../Header.module.scss";
 import { LocaleOptions } from "@/shared/settings/options";
 import { useTranslations } from "next-intl";
 
-export const LanguageSelection = () => {
+export type LanguageSelectionProps = {
+  onNavigate: () => void;
+};
+
+export const LanguageSelection = ({ onNavigate }: LanguageSelectionProps) => {
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const t = useTranslations();
@@ -19,26 +23,27 @@ export const LanguageSelection = () => {
       others.length ? `/${others.join("/")}` : ""
     }${search}`;
     router.push(newPathname);
+    onNavigate?.();
   };
 
   return (
-    <div className="flex flex-col w-full">
+    <div
+      className="flex flex-col w-full cursor-pointer"
+      onClick={() => setOpen((prev) => !prev)}
+    >
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-[8px]">
           <Icon icon="translate-01" />
-          <span className="text-normal-300 text-font-medium">
+          <span className="text-level-normal-300 text-font-medium">
             {t("language")}
           </span>
         </div>
-        <button
-          className="text-normal-300 text-font-medium"
-          onClick={() => setOpen((prev) => !prev)}
-        >
+        <button className="text-normal-300 text-font-medium">
           <Activity mode={open ? "visible" : "hidden"}>
-            <Icon icon={"minus"} className="icon-s" />
+            <Icon icon={"minus"} className="icon-md" />
           </Activity>
           <Activity mode={open ? "hidden" : "visible"}>
-            <Icon icon={"plus"} className="icon-s" />
+            <Icon icon={"plus"} className="icon-md" />
           </Activity>
         </button>
       </div>
@@ -48,8 +53,11 @@ export const LanguageSelection = () => {
           return (
             <li key={value}>
               <button
-                className="text-level-normal-100 text-font-normal"
-                onClick={() => onClick(value)}
+                className="text-level-normal-300 text-font-normal"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onClick(value);
+                }}
               >
                 {label}
               </button>
